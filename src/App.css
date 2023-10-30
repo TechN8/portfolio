@@ -1,0 +1,23 @@
+#root {
+  width: 100%;
+  max-width: 1280px;
+  margin: auto 0;
+  padding: 2rem;
+}
+
+#heading {
+  text-align: center;
+}
+
+#main {
+  display: flex;
+  flex-direction: row;
+}
+
+#sidebar {
+  flex: 0 0 30%;
+}
+
+#content {
+  flex: 1 1 auto;
+}
