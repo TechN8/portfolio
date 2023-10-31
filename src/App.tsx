@@ -5,7 +5,11 @@ import {
 } from 'react-router-dom';
 import Root from './routes/root.tsx';
 import ErrorPage from './error-page.tsx';
-import {loadCV} from './cv.js';
+import {loadCV, loadJob, loadProject} from './cv.js';
+import Index from './routes';
+import Projects from './routes/projects.tsx';
+import ProjectDetail from './routes/project.tsx';
+import JobDetail from './routes/job.tsx';
 
 function App() {
 
@@ -14,28 +18,26 @@ function App() {
             path: '/',
             element: <Root/>,
             errorElement: <ErrorPage/>,
-            loader: loadCV,
             children: [
-                // {
-                //     path: 'about',
-                //     element: <About/>,
-                // },
-                // {
-                //     path: 'experience',
-                //     element: <Experience/>,
-                // },
-                // {
-                //     path: 'experience/:slug',
-                //     element: <Job/>,
-                // },
-                // {
-                //     path: 'projects',
-                //     element: <Projects/>,
-                // },
-                // {
-                //     path: 'projects/:slug',
-                //     element: <Project/>,
-                // },
+                {
+                    element: <Index/>,
+                    index: true,
+                    loader: loadCV,
+                },
+                {
+                    path: 'jobs/:slug',
+                    element: <JobDetail/>,
+                    loader: loadJob,
+                },
+                {
+                    path: 'projects',
+                    element: <Projects/>,
+                },
+                {
+                    loader: loadProject,
+                    path: 'projects/:slug',
+                    element: <ProjectDetail/>,
+                },
             ],
         },
     ]);

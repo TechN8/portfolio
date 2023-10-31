@@ -1,7 +1,7 @@
 #root {
   width: 100%;
   max-width: 1280px;
-  margin: auto 0;
+  margin: 0 0;
   padding: 2rem;
 }
 
@@ -15,7 +15,7 @@
 }
 
 #sidebar {
-  flex: 0 0 30%;
+  flex: 0 0 40%;
 }
 
 #content {
