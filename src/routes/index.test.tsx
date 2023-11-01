@@ -10,7 +10,6 @@ import testdata from '../test/testdata.json';
 test('Renders index page correctly', async () => {
     // @ts-ignore
     fetch.mockResponse(() => {
-        console.log('In mock response.');
         return JSON.stringify(testdata);
     });
     const router = createMemoryRouter([
@@ -29,6 +28,4 @@ test('Renders index page correctly', async () => {
     await screen.findByText('First Last');
     expect(getByText('First Last')).toBeInTheDocument();
     expect(getByText('Experience')).toBeInTheDocument();
-})
-;
-;
+});

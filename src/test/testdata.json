@@ -65,6 +65,24 @@
         "Skill 1",
         "Skill 2"
       ]
+    },
+    {
+      "slug": "project-2",
+      "title": "Project 2",
+      "dates": "Start - End",
+      "showOnResume": true,
+      "url": false,
+      "summary": [
+        "Project feature 1.",
+        "Project feature 2."
+      ],
+      "detail": [
+        "Project 2 details."
+      ],
+      "skills": [
+        "Skill 1",
+        "Skill 3"
+      ]
     }
   ],
   "interests": [
