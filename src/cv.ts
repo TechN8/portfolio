@@ -15,6 +15,7 @@ export interface Project {
     summary: string[],
     detail: string[],
     showOnResume: boolean,
+    skills: string[],
 }
 
 export interface Link {
@@ -52,14 +53,24 @@ export async function loadCV() {
     return {cv};
 }
 
-export async function loadJob({params}: {params: any}) {
-    const { cv } = await loadCV();
+export async function loadJob({params}: { params: any }) {
+    const {cv} = await loadCV();
     let job = cv.experience.find(j => j.slug = params.slug);
-    return { job };
+    return {job};
 }
 
-export async function loadProject({params}: {params: any}) {
-    const { cv } = await loadCV();
+export async function loadProject({params}: { params: any }) {
+    const {cv} = await loadCV();
     let project = cv.projects.find(p => p.slug = params.slug);
-    return { project };
+    return {project};
+}
+
+export async function loadProjects() {
+    const {cv: {projects}} = await loadCV();
+    const skillSet = new Set<string>();
+    projects.forEach((p) => {
+        p.skills.forEach((s) => skillSet.add(s));
+    });
+    const skills = Array.from(skillSet).sort()
+    return {projects, skills};
 }

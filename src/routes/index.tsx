@@ -87,7 +87,6 @@ export default function Index(): ReactElement {
                         </div>
                     </div>
                 </div>
-                {JSON.stringify(cv)}
             </>
     );
 }

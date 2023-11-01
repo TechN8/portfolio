@@ -12,7 +12,7 @@ export default function Root(): ReactElement {
         <>
             <nav>
                 <ul>
-                    <li><NavLink to="/">CV</NavLink></li>
+                    <li><NavLink to="/">Resume</NavLink></li>
                     <li><NavLink to="/projects">Portfolio</NavLink></li>
                 </ul>
             </nav>
