@@ -70,7 +70,12 @@ export default function Index(): ReactElement {
                                 ))}
                             </ul>
                         </div>
-                        <div id="skills"><h2>Skills</h2></div>
+                        <div id="skills">
+                            <h2>Skills</h2>
+                            <ul>
+
+                            </ul>
+                        </div>
                         <div id="education"><h2>Education</h2></div>
                         <div id="interests"><h2>Interests</h2></div>
                     </div>
