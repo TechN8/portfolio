@@ -4,13 +4,12 @@ import {
 } from 'react-router-dom';
 import {ReactElement} from 'react';
 import {
-    CV,
-    Job, Project,
+    Contact,
+    Job,
+    Project,
 } from '../cv.ts';
 
-function Heading({cv}: { cv: CV }) {
-    const {contact} = cv;
-
+function Heading({contact}: { contact: any }) {
     return (
             <div id="heading">
                 <h1>{contact.name}</h1>
@@ -52,18 +51,21 @@ function ProjectSummary({project}: { project: Project }): ReactElement {
  * This is the root "interactive CV" route content.
  */
 export default function Index(): ReactElement {
-    const {cv} = useLoaderData() as { cv: CV };
+    const {contact, projects, experience} = useLoaderData() as {
+        contact: Contact,
+        projects: Project[],
+        experience: Job[]
+    };
 
-    // @ts-ignore
     return (
             <>
-                <Heading cv={cv}/>
+                <Heading contact={contact}/>
                 <div id="main">
                     <div id="sidebar">
                         <div id="contact">
                             <h2>Contact</h2>
                             <ul>
-                                {cv.contact.links.map((link) => (
+                                {contact.links.map((link) => (
                                         <li key={link.href}>
                                             <a href={link.href}>{link.text}</a>
                                         </li>
@@ -82,13 +84,11 @@ export default function Index(): ReactElement {
                     <div id="content">
                         <div id="experience">
                             <h2>Experience</h2>
-                            {cv.experience.map((job) => <JobSummary key={job.slug} job={job}/>)}
+                            {experience.map((job) => <JobSummary key={job.slug} job={job}/>)}
                         </div>
                         <div id="projects">
                             <h2>Projects</h2>
-                            {cv.projects
-                                    .filter(p => p.showOnResume)
-                                    .map((project) => <ProjectSummary key={project.slug} project={project}/>)}
+                            {projects.map((project) => <ProjectSummary key={project.slug} project={project}/>)}
                         </div>
                     </div>
                 </div>

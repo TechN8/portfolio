@@ -1,44 +1,54 @@
-import {ReactElement, useCallback, useState} from 'react';
+import {ReactElement, useContext} from 'react';
 import {Link, useLoaderData} from 'react-router-dom';
-import {Project} from '../cv.ts';
+import {FilterContext, FilterDispatchContext, Project} from '../cv.ts';
 
-function ProjectLink({project}: { project: Project }): ReactElement {
+function ProjectSummary({project}: { project: Project }): ReactElement {
     return (
-            <div>
-                <Link to={`/projects/${project.slug}`}>{project.title}</Link>
-            </div>
+            <>
+                <div className="job">
+                    <h3><Link to={`${project.slug}`}>{project.title}</Link></h3>
+                    <div className="date">{project.dates}</div>
+                    {/*<ul>*/}
+                    {/*    {project.summary.map((item) => <li key={item}>{item}</li>)}*/}
+                    {/*</ul>*/}
+                </div>
+            </>
     );
 }
 
 export default function Projects(): ReactElement {
     const {projects, skills} = useLoaderData() as { projects: Project[], skills: string[] };
-    const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
-    const toggleSkill = useCallback((skill: string) => {
-        if (selectedSkills.includes(skill)) {
-            setSelectedSkills(selectedSkills.filter(s => s != skill));
-        } else {
-            setSelectedSkills([...selectedSkills, skill]);
-        }
-        console.log(selectedSkills);
-    }, [selectedSkills, setSelectedSkills]);
+    const dispatch = useContext(FilterDispatchContext);
+    const filters = useContext(FilterContext);
+
+    function toggleSkill(skill: string) {
+        dispatch({type: 'toggle', skill});
+    }
+
     return (
             <>
-                <h1>Portfolio</h1>
+                <div id="heading">
+                    <h1>Portfolio</h1>
+                </div>
+
                 <div id="main">
                     <div id="sidebar">
-                        <div>Filter by skills</div>
-                        {skills.map((s) => (
-                                <div><label key={s}><input type="checkbox"
-                                                      checked={selectedSkills.includes(s)}
-                                                      onChange={() => toggleSkill(s)}
-                                />{s}</label></div>
-                        ))}
+                        <h2>Filter by skills</h2>
+                        <ul>
+                            {skills.map((s) => (
+                                    <li key={s}><label><input type="checkbox"
+                                                              checked={filters.includes(s)}
+                                                              onChange={() => toggleSkill(s)}
+                                    />{s}</label></li>
+                            ))}
+                        </ul>
                     </div>
                     <div id="content">
+                        <h2>Projects</h2>
                         {
                             projects
-                                    .filter(p => !selectedSkills.length || p.skills.some(s => selectedSkills.includes(s)))
-                                    .map(p => <ProjectLink key={p.slug} project={p}/>)
+                                    .filter(p => !filters.length || p.skills.some(s => filters.includes(s)))
+                                    .map(p => <ProjectSummary key={p.slug} project={p}/>)
                         }
                     </div>
                 </div>

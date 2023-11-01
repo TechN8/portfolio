@@ -1,10 +1,10 @@
-import Root from './root.tsx';
 import ErrorPage from '../error-page.tsx';
-import {loadCV, loadJob, loadProject, loadProjects} from '../cv.ts';
+import {loadIndex, loadJob, loadProject, loadProjects} from '../cv.ts';
 import JobDetail from './job.tsx';
 import Projects from './projects.tsx';
 import ProjectDetail from './project.tsx';
 import Index from './index.tsx';
+import Root from './root.tsx';
 
 export default [
     {
@@ -15,7 +15,7 @@ export default [
             {
                 element: <Index/>,
                 index: true,
-                loader: loadCV,
+                loader: loadIndex,
             },
             {
                 path: 'jobs/:slug',

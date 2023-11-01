@@ -1,3 +1,5 @@
+import {createContext} from 'react';
+
 export interface Job {
     slug: string,
     company: string,
@@ -23,12 +25,14 @@ export interface Link {
     href: string,
 }
 
+export interface Contact {
+    name: string,
+    title: string,
+    links: Link[],
+}
+
 export interface CV {
-    contact: {
-        name: string,
-        title: string,
-        links: Link[],
-    }
+    contact: Contact,
     education: [
         {
             title: string,
@@ -40,10 +44,36 @@ export interface CV {
     ],
     experience: Job[],
     projects: Project[],
-    timestamp: number,
 }
 
-export let cv: CV;
+let cv: CV;
+
+export const FilterContext = createContext<string[]>([]);
+export const FilterDispatchContext = createContext<Function>(()=>{})
+
+export function filterReducer(filters: string[], action: { type: string, skill: string }) {
+    switch (action.type) {
+        case 'toggle': {
+            const skill = action.skill;
+            if (filters.includes(skill)) {
+                return filters.filter(f => f != skill);
+            } else {
+                return [...filters, skill];
+            }
+        }
+        default: {
+            throw Error('Unknown action: ' + action.type);
+        }
+    }
+}
+
+function skills(cv: CV): string[] {
+    const skillSet = new Set<string>();
+    cv.projects.forEach((p) => {
+        p.skills.forEach((s) => skillSet.add(s));
+    });
+    return Array.from(skillSet).sort();
+}
 
 export async function loadCV() {
     if (!cv) {
@@ -51,6 +81,16 @@ export async function loadCV() {
         cv = await response.json();
     }
     return {cv};
+}
+
+export async function loadIndex() {
+    const {cv} = await loadCV();
+    const resumeProjects = cv.projects.filter(p => p.showOnResume);
+    return {
+        ...cv,
+        projects: resumeProjects,
+        skills: skills(cv),
+    };
 }
 
 export async function loadJob({params}: { params: any }) {
@@ -67,10 +107,8 @@ export async function loadProject({params}: { params: any }) {
 
 export async function loadProjects() {
     const {cv: {projects}} = await loadCV();
-    const skillSet = new Set<string>();
-    projects.forEach((p) => {
-        p.skills.forEach((s) => skillSet.add(s));
-    });
-    const skills = Array.from(skillSet).sort()
-    return {projects, skills};
+    return {
+        projects,
+        skills: skills(cv)
+    };
 }
