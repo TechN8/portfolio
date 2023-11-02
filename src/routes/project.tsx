@@ -1,7 +1,7 @@
 import {ReactElement} from 'react';
 import {useLoaderData} from 'react-router-dom';
 import {Project} from '../cv.ts';
-import {Block} from '../components/markup.tsx';
+import {Block, Video} from '../components/markup.tsx';
 
 export default function ProjectDetail(): ReactElement {
     const {project} = useLoaderData() as { project: Project };
@@ -11,8 +11,10 @@ export default function ProjectDetail(): ReactElement {
                     <h1>{project.title}</h1>
                     <div>{project?.subtitle}</div>
                 </div>
-                <div className="content">
-                    <div className="main">
+                <div id="content">
+                    <div id="main">
+                        {project?.video && <Video videoId={project.video}/> }
+                        {project?.repo && <p><a href={project.repo}>Source Code</a></p>}
                         {project.detail.map((d) => (
                                 <Block key={d} content={d}/>
                         ))}

@@ -96,6 +96,15 @@ h3 a {
     margin-top: 0;
 }
 
+#main .video {
+    width: 100%;
+}
+
+#main iframe {
+    display: block;
+    margin: 0 auto;
+}
+
 nav ul {
     display: flex;
     flex-direction: row;

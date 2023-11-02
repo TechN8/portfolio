@@ -13,12 +13,14 @@ export type Job = {
 export type Project = {
     slug: string,
     title: string,
+    repo?: string,
     subtitle?: string;
     dates: string,
     summary: string[],
     detail: string[],
     showOnResume: boolean,
     skills: string[],
+    video?: string,
 }
 
 export type Link = {
