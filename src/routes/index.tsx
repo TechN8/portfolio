@@ -1,12 +1,10 @@
 import {
-    Link,
     useLoaderData,
 } from 'react-router-dom';
 import {ReactElement} from 'react';
 import {
     CV,
     Job,
-    Project,
 } from '../cv.ts';
 import {Inline} from '../components/markup.tsx';
 
@@ -14,29 +12,11 @@ function JobSummary({job}: { job: Job }): ReactElement {
     return (
             <>
                 <div className="job">
-                    {/*<h3><Link to={`jobs/${job.slug}`}>{job.role}</Link></h3>*/}
                     <h3>{job.role}</h3>
                     <div className="company">{job.company}</div>
                     <div className="date">{job.dates}</div>
                     <ul>
                         {job.summary.map((item, index) => <li key={index}><Inline content={item}/></li>)}
-                    </ul>
-                </div>
-            </>
-    );
-}
-
-function ProjectSummary({project}: { project: Project }): ReactElement {
-    return (
-            <>
-                <div className="job">
-                    <h3>
-                        <Link to={`${project.slug}`}
-                        >{project.title}{project.subtitle ? ` - ${project.subtitle}` : ''}</Link>
-                    </h3>
-                    <div className="date">{project.dates}</div>
-                    <ul>
-                        {project.summary.map((item, index) => <li key={index}><Inline content={item}/></li>)}
                     </ul>
                 </div>
             </>
@@ -49,7 +29,6 @@ function ProjectSummary({project}: { project: Project }): ReactElement {
 export default function Index(): ReactElement {
     const {
         contact,
-        projects,
         experience,
         education,
         interests,
@@ -82,20 +61,20 @@ export default function Index(): ReactElement {
                         </div>
                         <div id="education">
                             <h2>Education</h2>
-                            {education.map(e => (
-                                    <p>
+                            {education.map((e, index) => (
+                                    <div key={index}>
                                         <h3>{e.title}</h3>
                                         <div>{e.subtitle}</div>
                                         <div>{e.institution}</div>
                                         <div>{e.location}</div>
                                         <div>{e.dates}</div>
-                                    </p>
+                                    </div>
                             ))}
                         </div>
                         <div id="interests">
                             <h2>Interests</h2>
                             <ul>
-                                {interests.map(i => <li>{i}</li>)}
+                                {interests.map((interest, index) => <li key={index}>{interest}</li>)}
                             </ul>
                         </div>
                     </div>
@@ -103,10 +82,6 @@ export default function Index(): ReactElement {
                         <div id="experience">
                             <h2>Experience</h2>
                             {experience.map((job) => <JobSummary key={job.slug} job={job}/>)}
-                        </div>
-                        <div id="projects">
-                            <h2>Projects</h2>
-                            {projects.map((project) => <ProjectSummary key={project.slug} project={project}/>)}
                         </div>
                     </div>
                 </div>
