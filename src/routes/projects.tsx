@@ -25,15 +25,20 @@ export default function Projects(): ReactElement {
         dispatch({type: 'toggle', skill});
     }
 
+    function resetFilters() {
+        dispatch({type: 'clear'});
+    }
+
     return (
             <>
                 <div id="heading">
                     <h1>Portfolio</h1>
                 </div>
 
-                <div id="main">
+                <div id="content">
                     <div id="sidebar">
                         <h2>Filter by skills</h2>
+                        <button onClick={resetFilters}>Deselect All</button>
                         <ul>
                             {skills.map((s) => (
                                     <li key={s}><label><input type="checkbox"
@@ -43,7 +48,7 @@ export default function Projects(): ReactElement {
                             ))}
                         </ul>
                     </div>
-                    <div id="content">
+                    <div id="main">
                         <h2>Projects</h2>
                         {
                             projects

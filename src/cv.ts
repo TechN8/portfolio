@@ -1,6 +1,6 @@
 import {createContext} from 'react';
 
-export interface Job {
+export type Job = {
     slug: string,
     company: string,
     role: string,
@@ -10,7 +10,7 @@ export interface Job {
     detail: string[]
 }
 
-export interface Project {
+export type Project = {
     slug: string,
     title: string,
     dates: string,
@@ -20,23 +20,23 @@ export interface Project {
     skills: string[],
 }
 
-export interface Link {
+export type Link = {
     text: string,
     href: string,
 }
 
-export interface Contact {
+export type Contact = {
     name: string,
     title: string,
     links: Link[],
 }
 
-export interface CV {
+export type CV = {
     contact: Contact,
     education: [
         {
             title: string,
-            subTitle: string,
+            subtitle: string,
             institution: string,
             location: string,
             dates: string,
@@ -44,6 +44,8 @@ export interface CV {
     ],
     experience: Job[],
     projects: Project[],
+    interests: string[],
+    skills?: string[],
 }
 
 let cv: CV;
@@ -60,6 +62,9 @@ export function filterReducer(filters: string[], action: { type: string, skill: 
             } else {
                 return [...filters, skill];
             }
+        }
+        case 'clear': {
+            return [];
         }
         default: {
             throw Error('Unknown action: ' + action.type);
