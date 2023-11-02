@@ -56,13 +56,13 @@ h3 a {
 #root {
     width: 100%;
     max-width: 1280px;
-    padding: 2rem;
 }
 
 #heading {
     text-align: center;
     margin-bottom: 1em;
 }
+
 #heading h1 {
     margin-bottom: 0;
 }
@@ -76,6 +76,7 @@ h3 a {
 #content {
     display: flex;
     flex-direction: row;
+    padding: 2rem;
 }
 
 #sidebar {
@@ -103,6 +104,11 @@ h3 a {
 #main iframe {
     display: block;
     margin: 0 auto;
+}
+
+nav {
+    padding: 0.5em 2rem;
+    border-bottom: 1px solid #222222;
 }
 
 nav ul {
@@ -165,6 +171,10 @@ button:focus-visible {
         color: #ffffff;
     }
 
+    nav {
+        border-bottom: 1px solid #888888;
+    }
+
     nav a {
         color: #55aa55;
     }
@@ -184,12 +194,23 @@ button:focus-visible {
     :root {
         font-size: 12px;
     }
-    #root {
-        margin: 0;
+
+    #content {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
     }
-    h1 {
-        margin-top: 0;
+
+    #sidebar {
+        position: absolute;
+        width: 30%;
     }
+
+    #main {
+        position: absolute;
+        margin-left: 30%;
+    }
+
     nav {
         display: none;
     }
