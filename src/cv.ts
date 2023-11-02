@@ -13,6 +13,7 @@ export type Job = {
 export type Project = {
     slug: string,
     title: string,
+    subtitle?: string;
     dates: string,
     summary: string[],
     detail: string[],
@@ -100,20 +101,20 @@ export async function loadIndex() {
 
 export async function loadJob({params}: { params: any }) {
     const {cv} = await loadCV();
-    let job = cv.experience.find(j => j.slug = params.slug);
+    let job = cv.experience.find(j => j.slug == params.slug);
     return {job};
 }
 
 export async function loadProject({params}: { params: any }) {
     const {cv} = await loadCV();
-    let project = cv.projects.find(p => p.slug = params.slug);
+    let project = cv.projects.find(p => p.slug == params.slug);
     return {project};
 }
 
 export async function loadProjects() {
-    const {cv: {projects}} = await loadCV();
+    const {cv} = await loadCV();
     return {
-        projects,
+        ...cv,
         skills: skills(cv)
     };
 }

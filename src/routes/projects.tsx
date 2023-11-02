@@ -1,23 +1,23 @@
 import {ReactElement, useContext} from 'react';
 import {Link, useLoaderData} from 'react-router-dom';
-import {FilterContext, FilterDispatchContext, Project} from '../cv.ts';
+import {CV, FilterContext, FilterDispatchContext, Project} from '../cv.ts';
 
 function ProjectSummary({project}: { project: Project }): ReactElement {
     return (
             <>
                 <div className="job">
-                    <h3><Link to={`${project.slug}`}>{project.title}</Link></h3>
+                    <h3>
+                        <Link to={`${project.slug}`}
+                        >{project.title}{project.subtitle ? ` - ${project.subtitle}` : ''}</Link>
+                    </h3>
                     <div className="date">{project.dates}</div>
-                    {/*<ul>*/}
-                    {/*    {project.summary.map((item) => <li key={item}>{item}</li>)}*/}
-                    {/*</ul>*/}
                 </div>
             </>
     );
 }
 
 export default function Projects(): ReactElement {
-    const {projects, skills} = useLoaderData() as { projects: Project[], skills: string[] };
+    const {contact, projects, skills} = useLoaderData() as CV;
     const dispatch = useContext(FilterDispatchContext);
     const filters = useContext(FilterContext);
 
@@ -33,6 +33,7 @@ export default function Projects(): ReactElement {
             <>
                 <div id="heading">
                     <h1>Portfolio</h1>
+                    <div>{contact.name}</div>
                 </div>
 
                 <div id="content">
@@ -40,7 +41,7 @@ export default function Projects(): ReactElement {
                         <h2>Filter by skills</h2>
                         <button onClick={resetFilters}>Deselect All</button>
                         <ul>
-                            {skills.map((s) => (
+                            {skills?.map((s) => (
                                     <li key={s}><label><input type="checkbox"
                                                               checked={filters.includes(s)}
                                                               onChange={() => toggleSkill(s)}

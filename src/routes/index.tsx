@@ -14,7 +14,8 @@ function JobSummary({job}: { job: Job }): ReactElement {
     return (
             <>
                 <div className="job">
-                    <h3><Link to={`jobs/${job.slug}`}>{job.role}</Link></h3>
+                    {/*<h3><Link to={`jobs/${job.slug}`}>{job.role}</Link></h3>*/}
+                    <h3>{job.role}</h3>
                     <div className="company">{job.company}</div>
                     <div className="date">{job.dates}</div>
                     <ul>
@@ -29,7 +30,10 @@ function ProjectSummary({project}: { project: Project }): ReactElement {
     return (
             <>
                 <div className="job">
-                    <h3><Link to={`projects/${project.slug}`}>{project.title}</Link></h3>
+                    <h3>
+                        <Link to={`${project.slug}`}
+                        >{project.title}{project.subtitle ? ` - ${project.subtitle}` : ''}</Link>
+                    </h3>
                     <div className="date">{project.dates}</div>
                     <ul>
                         {project.summary.map((item, index) => <li key={index}><Inline content={item}/></li>)}

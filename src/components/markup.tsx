@@ -3,7 +3,7 @@ import DOMPurify from 'dompurify';
 
 export function Block({content}: { content: string }): ReactElement {
     return (
-            <div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(content)}}/>
+            <p dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(content)}}/>
     );
 }
 
