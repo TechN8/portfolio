@@ -14,6 +14,11 @@
     -webkit-text-size-adjust: 100%;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
 a:hover {
     text-decoration: underline;
 }
@@ -24,7 +29,6 @@ nav a {
 }
 
 body {
-    margin: 0;
     display: flex;
     place-items: start;
     min-width: 320px;
@@ -40,12 +44,13 @@ h1 {
 h2 {
     color: #558855;
     text-transform: uppercase;
-    margin: 0.5em 0;
+    margin-bottom: 1rem;
 }
 
 h3 {
     font-weight: bold;
-    margin-bottom: 0;
+    /*margin-bottom: 0;*/
+    /*margin: 0;*/
 }
 
 h3 a {
@@ -60,11 +65,7 @@ h3 a {
 
 #heading {
     text-align: center;
-    margin-bottom: 1em;
-}
-
-#heading h1 {
-    margin-bottom: 0;
+    margin: 2rem 0;
 }
 
 #heading div {
@@ -76,25 +77,29 @@ h3 a {
 #content {
     display: flex;
     flex-direction: row;
-    padding: 2rem;
+    margin: 2rem;
 }
 
 #sidebar {
     flex: 0 0 40%;
 }
+#sidebar > div {
+    margin-bottom: 2rem;
+}
 
 #sidebar ul {
     list-style: none;
-    padding: 0;
 }
 
 #main {
     flex: 1 1 auto;
 }
+#main .job {
+    margin-bottom: 2rem;
+}
 
 #main ul {
-    padding: 1rem;
-    margin-top: 0;
+    padding: 1em;
 }
 
 #main .video {
@@ -116,7 +121,6 @@ nav ul {
     flex-direction: row;
     list-style: none;
     padding: 0;
-    margin: 0;
 }
 
 nav li {
@@ -153,7 +157,7 @@ button {
     color: #222222;
     cursor: pointer;
     transition: border-color 0.25s;
-    /*margin-bottom: 1em;*/
+    margin-bottom: 1rem;
 }
 
 button:active {
@@ -163,6 +167,14 @@ button:active {
 button:focus,
 button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
+}
+
+input[type=checkbox] {
+    margin-right: 0.5em;
+}
+
+p {
+    margin: 1rem 0;
 }
 
 @media (prefers-color-scheme: dark) {
