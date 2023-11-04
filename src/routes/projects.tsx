@@ -1,6 +1,7 @@
 import {ReactElement, useContext} from 'react';
 import {Link, useLoaderData} from 'react-router-dom';
 import {CV, FilterContext, FilterDispatchContext, Project} from '../cv.ts';
+import {Inline} from '../components/markup.tsx';
 
 function ProjectSummary({project}: { project: Project }): ReactElement {
     return (
@@ -11,6 +12,9 @@ function ProjectSummary({project}: { project: Project }): ReactElement {
                         >{project.title}{project.subtitle ? ` - ${project.subtitle}` : ''}</Link>
                     </h3>
                     <div className="date">{project.dates}</div>
+                    <ul>
+                        {project.summary.map((item, index) => <li key={index}><Inline content={item}/></li>)}
+                    </ul>
                 </div>
             </>
     );
@@ -30,7 +34,7 @@ export default function Projects(): ReactElement {
     }
 
     return (
-            <>
+            <div id="projects">
                 <div id="heading">
                     <h1>Portfolio</h1>
                     <div>{contact.name}</div>
@@ -38,16 +42,18 @@ export default function Projects(): ReactElement {
 
                 <div id="content">
                     <div id="sidebar">
-                        <h2>Filter by skills</h2>
-                        <button onClick={resetFilters}>Deselect All</button>
-                        <ul>
-                            {skills?.map((s) => (
-                                    <li key={s}><label><input type="checkbox"
-                                                              checked={filters.includes(s)}
-                                                              onChange={() => toggleSkill(s)}
-                                    />{s}</label></li>
-                            ))}
-                        </ul>
+                        <div id="skills-filter">
+                            <h2>Filter by skills</h2>
+                            <button onClick={resetFilters}>Deselect All</button>
+                            <ul>
+                                {skills?.map((s) => (
+                                        <li key={s}><label><input type="checkbox"
+                                                                  checked={filters.includes(s)}
+                                                                  onChange={() => toggleSkill(s)}
+                                        />{s}</label></li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
                     <div id="main">
                         <h2>Projects</h2>
@@ -58,6 +64,6 @@ export default function Projects(): ReactElement {
                         }
                     </div>
                 </div>
-            </>
+            </div>
     );
 }

@@ -18,11 +18,9 @@ export function Video({videoId}: { videoId: string }): ReactElement {
             <div className="video">
                 <iframe
                         className="youtube"
-                        width="560"
-                        height="315"
                         src={`https://www.youtube.com/embed/${videoId}`}
                         title="YouTube video player"
-                        style={{border: 0}}
+                        style={{border: 0, maxWidth: 560, aspectRatio: 16/9, width: "100%" }}
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
                 ></iframe>

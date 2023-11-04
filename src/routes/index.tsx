@@ -36,7 +36,7 @@ export default function Index(): ReactElement {
     } = useLoaderData() as CV;
 
     return (
-            <>
+            <div id="cv">
                 <div id="heading">
                     <h1>{contact.name}</h1>
                     <div>{contact.title}</div>
@@ -85,6 +85,6 @@ export default function Index(): ReactElement {
                         </div>
                     </div>
                 </div>
-            </>
+            </div>
     );
 }
