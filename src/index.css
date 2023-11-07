@@ -19,15 +19,6 @@
     padding: 0;
 }
 
-a:hover {
-    text-decoration: underline;
-}
-
-nav a {
-    color: #558855;
-    text-decoration: inherit;
-}
-
 body {
     display: flex;
     place-items: start;
@@ -132,6 +123,15 @@ nav li {
     text-transform: uppercase;
 }
 
+nav a, nav a:visited {
+    color: #558855;
+    text-decoration: inherit;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
 nav a:before {
     content: '>';
     opacity: 0;
@@ -218,7 +218,7 @@ p {
         border-bottom: 1px solid #888888;
     }
 
-    nav a {
+    nav a, nav a:visited {
         color: #55aa55;
     }
 
