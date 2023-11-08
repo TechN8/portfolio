@@ -56,10 +56,18 @@ let cv: CV;
 export const FilterContext = createContext<string[]>([]);
 export const FilterDispatchContext = createContext<Function>(()=>{})
 
-export function filterReducer(filters: string[], action: { type: string, skill: string }) {
+type Action = {
+    type: string
+}
+
+interface SkillAction extends Action {
+    skill: string
+}
+
+export function filterReducer(filters: string[], action: Action | SkillAction) {
     switch (action.type) {
         case 'toggle': {
-            const skill = action.skill;
+            const skill = (<SkillAction>action).skill;
             if (filters.includes(skill)) {
                 return filters.filter(f => f != skill);
             } else {
