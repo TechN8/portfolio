@@ -1,5 +1,7 @@
 import {createContext} from 'react';
 
+/* Types */
+
 export type Job = {
     slug: string,
     company: string,
@@ -48,23 +50,30 @@ export type CV = {
     experience: Job[],
     projects: Project[],
     interests: string[],
+    hideSkills: string[],
     skills?: string[],
 }
 
-let cv: CV;
-
-export const FilterContext = createContext<string[]>([]);
-export const FilterDispatchContext = createContext<Function>(() => {
-});
-
+/** Action for reducers */
 type Action = {
     type: string
 }
 
+/** Action with skill field */
 interface SkillAction extends Action {
     skill: string;
 }
 
+let cv: CV;
+
+/** React context for passing filters to children */
+export const FilterContext = createContext<string[]>([]);
+
+/** Dispatcher context for sending reducer actions */
+export const FilterDispatchContext = createContext<Function>(() => {
+});
+
+/** Reducer for managing selected filter skills */
 export function filterReducer(filters: string[], action: Action | SkillAction) {
     switch (action.type) {
         case 'toggle': {
@@ -84,18 +93,33 @@ export function filterReducer(filters: string[], action: Action | SkillAction) {
     }
 }
 
+/** Case-insensitive sort function. */
 function skillSort(a: string, b: string) {
     return a.toLowerCase().localeCompare(b.toLowerCase());
 }
 
-function skills(cv: CV): string[] {
+/** Make a unique set of skills from all projects in CV */
+function skillSet(cv: CV): Set<string> {
     const skillSet = new Set<string>();
     cv.projects.forEach((p) => {
         p.skills.forEach((s) => skillSet.add(s));
     });
-    return Array.from(skillSet).sort(skillSort);
+    return skillSet;
 }
 
+/** Sorted array of all skills from a CV */
+function allSkills(cv: CV): string[] {
+    return Array.from(skillSet(cv)).sort(skillSort);
+}
+
+/** All skills minus hidden skills. */
+function indexSkills(cv: CV): string[] {
+    const set = skillSet(cv);
+    cv.hideSkills.forEach(s => set.delete(s));
+    return Array.from(set).sort(skillSort);
+}
+
+/** Cetch CV data from server if not already downloaded. */
 export async function loadCV() {
     if (!cv) {
         const response = await fetch('./data.json');
@@ -104,22 +128,28 @@ export async function loadCV() {
     return {cv};
 }
 
+/** React-Router loader for index page */
 export async function loadIndex() {
     const {cv} = await loadCV();
     const resumeProjects = cv.projects.filter(p => p.showOnResume);
     return {
         ...cv,
         projects: resumeProjects,
-        // skills: skills(cv),
+        skills: indexSkills(cv),
     };
 }
 
+/**
+ * React-Router loader for job page
+ *  @deprecated
+ *  */
 export async function loadJob({params}: { params: any }) {
     const {cv} = await loadCV();
     let job = cv.experience.find(j => j.slug == params.slug);
     return {job};
 }
 
+/** React-Router loader for project page. */
 export async function loadProject({params}: { params: any }) {
     const {cv} = await loadCV();
     let project = cv.projects.find(p => p.slug == params.slug);
@@ -131,10 +161,11 @@ export async function loadProject({params}: { params: any }) {
     };
 }
 
+/** React-Router loader for projects search page. */
 export async function loadProjects() {
     const {cv} = await loadCV();
     return {
         ...cv,
-        skills: skills(cv)
+        skills: allSkills(cv)
     };
 }

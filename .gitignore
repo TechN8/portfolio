@@ -25,4 +25,5 @@ dist-ssr
 
 # Personal data
 public/*
+!public/data.sample.json
 TODO.md

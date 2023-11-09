@@ -14,7 +14,7 @@ function JobSummary({job}: { job: Job }): ReactElement {
                 <div className="job">
                     <h3>{job.role}</h3>
                     <div className="company">{job.company}</div>
-                    <div className="date">{job.dates}</div>
+                    <div className="date">{job.dates} / {job.location}</div>
                     <ul>
                         {job.summary.map((item, index) => <li key={index}><Inline content={item}/></li>)}
                     </ul>
@@ -71,12 +71,14 @@ export default function Index(): ReactElement {
                                     </div>
                             ))}
                         </div>
-                        <div id="interests">
-                            <h2>Interests</h2>
-                            <ul>
-                                {interests.map((interest, index) => <li key={index}>{interest}</li>)}
-                            </ul>
-                        </div>
+                        {interests && (
+                            <div id="interests">
+                                <h2>Interests</h2>
+                                <ul>
+                                    {interests.map((interest, index) => <li key={index}>{interest}</li>)}
+                                </ul>
+                            </div>
+                        )}
                     </div>
                     <div id="main">
                         <div id="experience">
