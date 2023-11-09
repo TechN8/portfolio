@@ -7,7 +7,7 @@ import {expect} from 'vitest';
 fetch.mockResponse(JSON.stringify(testdata));
 
 test('Loads CV json via fetch', async () => {
-    const {cv} = await loadCV();
+    const cv = await loadCV();
     expect(cv.contact.name).toContain('First Last');
 });
 
