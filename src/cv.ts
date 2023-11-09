@@ -54,14 +54,15 @@ export type CV = {
 let cv: CV;
 
 export const FilterContext = createContext<string[]>([]);
-export const FilterDispatchContext = createContext<Function>(()=>{})
+export const FilterDispatchContext = createContext<Function>(() => {
+});
 
 type Action = {
     type: string
 }
 
 interface SkillAction extends Action {
-    skill: string
+    skill: string;
 }
 
 export function filterReducer(filters: string[], action: Action | SkillAction) {
@@ -83,12 +84,16 @@ export function filterReducer(filters: string[], action: Action | SkillAction) {
     }
 }
 
+function skillSort(a: string, b: string) {
+    return a.toLowerCase().localeCompare(b.toLowerCase());
+}
+
 function skills(cv: CV): string[] {
     const skillSet = new Set<string>();
     cv.projects.forEach((p) => {
         p.skills.forEach((s) => skillSet.add(s));
     });
-    return Array.from(skillSet).sort();
+    return Array.from(skillSet).sort(skillSort);
 }
 
 export async function loadCV() {
@@ -105,7 +110,7 @@ export async function loadIndex() {
     return {
         ...cv,
         projects: resumeProjects,
-        skills: skills(cv),
+        // skills: skills(cv),
     };
 }
 
@@ -118,7 +123,12 @@ export async function loadJob({params}: { params: any }) {
 export async function loadProject({params}: { params: any }) {
     const {cv} = await loadCV();
     let project = cv.projects.find(p => p.slug == params.slug);
-    return {project};
+    return {
+        project: {
+            ...project,
+            skills: project?.skills.sort(skillSort),
+        }
+    };
 }
 
 export async function loadProjects() {
