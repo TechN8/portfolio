@@ -122,7 +122,7 @@ function indexSkills(cv: CV): string[] {
 /** Cetch CV data from server if not already downloaded. */
 export async function loadCV() {
     if (!cv) {
-        const response = await fetch('./data.json');
+        const response = await fetch(`${document.baseURI}/data.json`);
         cv = await response.json();
     }
     return cv;
