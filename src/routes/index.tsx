@@ -48,7 +48,7 @@ export default function Index(): ReactElement {
                             <ul>
                                 {contact.links.map((link) => (
                                         <li key={link.href}>
-                                            <a href={link.href}><Inline content={link.text}/></a>
+                                            <a href={link.href} target="_blank"><Inline content={link.text}/></a>
                                         </li>
                                 ))}
                             </ul>

@@ -27,7 +27,7 @@ export default function ProjectDetail(): ReactElement {
                         </div>
                         <div id="main">
                             {project?.video && <Video videoId={project.video}/>}
-                            {project?.repo && <p><a href={project.repo}>Source Code</a></p>}
+                            {project?.repo && <p><a href={project.repo} target="_blank">Source Code</a></p>}
                             {project.detail.map((d) => (
                                     <Block key={d} content={d}/>
                             ))}
