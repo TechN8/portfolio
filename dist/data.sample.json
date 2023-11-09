@@ -1,0 +1,96 @@
+{
+  "contact": {
+    "name": "First Last",
+    "title": "Job Title",
+    "links": [
+      {
+        "text": "linkedin.com/in/username",
+        "href": "https://linkedin.com/in/username"
+      },
+      {
+        "text": "github.com/username",
+        "href": "https://github.com/username"
+      }
+    ]
+  },
+  "education": [
+    {
+      "title": "B.S. Computer Science",
+      "subtitle": "Minor in Other Stuff",
+      "institution": "State University of City",
+      "location": "City, State",
+      "dates": "Start - End"
+    }
+  ],
+  "experience": [
+    {
+      "slug": "job-1",
+      "company": "Company 1",
+      "role": "Role 1",
+      "dates": "Start - End",
+      "location": "City, State",
+      "summary": [
+        "Did some things.",
+        "Made a program"
+      ],
+      "detail": []
+    },
+    {
+      "slug": "job-2",
+      "company": "Company 2",
+      "role": "Role 2",
+      "dates": "Start - End",
+      "location": "City, State",
+      "summary": [
+        "Did some other things."
+      ],
+      "detail": []
+    }
+  ],
+  "projects": [
+    {
+      "slug": "project-1",
+      "title": "Project 1",
+      "dates": "Start - ",
+      "showOnResume": true,
+      "url": false,
+      "summary": [
+        "Project feature 1.",
+        "Project feature 2."
+      ],
+      "detail": [
+        "Project 1 details."
+      ],
+      "skills": [
+        "Skill 1",
+        "Skill 2"
+      ]
+    },
+    {
+      "slug": "project-2",
+      "title": "Project 2",
+      "dates": "Start - End",
+      "showOnResume": true,
+      "url": false,
+      "summary": [
+        "Project feature 1.",
+        "Project feature 2."
+      ],
+      "detail": [
+        "Project 2 details."
+      ],
+      "skills": [
+        "Skill 1",
+        "Skill 3"
+      ]
+    }
+  ],
+  "interests": [
+    "Interest 1",
+    "Interest 2",
+    "Interest 3"
+  ],
+  "hideSkills": [
+    "Skill 2"
+  ]
+}
