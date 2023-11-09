@@ -196,6 +196,11 @@ p {
         margin-bottom: 1rem;
     }
 
+    #sidebar ul {
+        white-space: normal;
+        overflow: initial;
+    }
+
     #sidebar li {
         display: inline-block;
         margin-right: 1em;
