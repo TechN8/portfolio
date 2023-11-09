@@ -125,12 +125,12 @@ export async function loadCV() {
         const response = await fetch('./data.json');
         cv = await response.json();
     }
-    return {cv};
+    return cv;
 }
 
 /** React-Router loader for index page */
 export async function loadIndex() {
-    const {cv} = await loadCV();
+    const cv = await loadCV();
     const resumeProjects = cv.projects.filter(p => p.showOnResume);
     return {
         ...cv,
@@ -144,26 +144,31 @@ export async function loadIndex() {
  *  @deprecated
  *  */
 export async function loadJob({params}: { params: any }) {
-    const {cv} = await loadCV();
+    const cv = await loadCV();
     let job = cv.experience.find(j => j.slug == params.slug);
     return {job};
 }
 
 /** React-Router loader for project page. */
 export async function loadProject({params}: { params: any }) {
-    const {cv} = await loadCV();
-    let project = cv.projects.find(p => p.slug == params.slug);
+    const cv = await loadCV();
+    let index = cv.projects.findIndex(p => p.slug == params.slug);
+    let project = cv.projects[index];
+    let previous = index > 0 ? cv.projects[index - 1] : false;
+    let next = index < cv.projects.length - 1 ? cv.projects[index + 1] : false;
     return {
         project: {
             ...project,
             skills: project?.skills.sort(skillSort),
-        }
+        },
+        next,
+        previous,
     };
 }
 
 /** React-Router loader for projects search page. */
 export async function loadProjects() {
-    const {cv} = await loadCV();
+    const cv = await loadCV();
     return {
         ...cv,
         skills: allSkills(cv)

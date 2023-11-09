@@ -109,7 +109,14 @@ h3 {
 
 nav {
     padding: 0.5em 2rem;
+}
+
+nav.top {
     border-bottom: 1px solid #222222;
+}
+
+nav.bottom {
+    border-top: 1px solid #222222;
 }
 
 nav ul {
@@ -117,6 +124,10 @@ nav ul {
     flex-direction: row;
     list-style: none;
     padding: 0;
+}
+
+nav.bottom ul {
+    justify-content: space-between;
 }
 
 nav li {
@@ -205,13 +216,18 @@ p {
         display: inline-block;
         margin-right: 1em;
     }
+
     #sidebar #skills li:after {
         content: ',';
     }
+
     #sidebar #skills li:last-child:after {
         content: '';
     }
 
+    nav.bottom ul {
+        /*flex-direction: column;*/
+    }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -220,8 +236,13 @@ p {
         color: #ffffff;
     }
 
-    nav {
-        border-bottom: 1px solid #888888;
+    nav.top {
+        border-color: #666666;
+    }
+
+    nav.bottom {
+        border-color: #666666;
+        margin-bottom: 2rem;
     }
 
     nav a, nav a:visited {

@@ -1,33 +1,45 @@
 import {ReactElement} from 'react';
-import {useLoaderData} from 'react-router-dom';
+import {Link, useLoaderData} from 'react-router-dom';
 import {Project} from '../cv.ts';
 import {Block, Video} from '../components/markup.tsx';
 
 export default function ProjectDetail(): ReactElement {
-    const {project} = useLoaderData() as { project: Project };
+    const {project, next, previous} = useLoaderData() as {
+        project: Project,
+        next: Project,
+        previous: Project
+    };
     return (
-            <div id="project">
-                <div id="heading">
-                    <h1>{project.title}</h1>
-                    <div>{project?.subtitle}</div>
-                </div>
-                <div id="content">
-                    <div id="sidebar">
-                        <div id="skills">
-                            <h2>Skills</h2>
-                            <ul>
-                                {project.skills?.map((s) => <li key={s}>{s}</li>)}
-                            </ul>
+            <>
+                <div id="project">
+                    <div id="heading">
+                        <h1>{project.title}</h1>
+                        <div>{project?.subtitle}</div>
+                    </div>
+                    <div id="content">
+                        <div id="sidebar">
+                            <div id="skills">
+                                <h2>Skills</h2>
+                                <ul>
+                                    {project.skills?.map((s) => <li key={s}>{s}</li>)}
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="main">
+                            {project?.video && <Video videoId={project.video}/>}
+                            {project?.repo && <p><a href={project.repo}>Source Code</a></p>}
+                            {project.detail.map((d) => (
+                                    <Block key={d} content={d}/>
+                            ))}
                         </div>
                     </div>
-                    <div id="main">
-                        {project?.video && <Video videoId={project.video}/>}
-                        {project?.repo && <p><a href={project.repo}>Source Code</a></p>}
-                        {project.detail.map((d) => (
-                                <Block key={d} content={d}/>
-                        ))}
-                    </div>
                 </div>
-            </div>
+                        <nav className="bottom">
+                            <ul>
+                                <li>{previous && <Link to={`/projects/${previous.slug}`}>&larr;&nbsp;{previous.title}</Link>}</li>
+                                <li>{next && <Link to={`/projects/${next.slug}`}>{next.title}&nbsp;&rarr;</Link>}</li>
+                            </ul>
+                        </nav>
+            </>
     );
 }

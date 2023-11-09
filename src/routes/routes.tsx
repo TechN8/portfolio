@@ -1,5 +1,5 @@
 import ErrorPage from '../error-page.tsx';
-import {loadIndex, loadJob, loadProject, loadProjects} from '../cv.ts';
+import {loadCV, loadIndex, loadJob, loadProject, loadProjects} from '../cv.ts';
 import JobDetail from './job.tsx';
 import Projects from './projects.tsx';
 import ProjectDetail from './project.tsx';
@@ -11,6 +11,7 @@ export default [
         path: '/',
         element: <Root/>,
         errorElement: <ErrorPage/>,
+        loader: loadCV,
         children: [
             {
                 element: <Index/>,
