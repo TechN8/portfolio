@@ -126,7 +126,7 @@
         "Hosted on GitHub"
       ],
       "detail": [
-        "<img src=\"/public/portfolio.png\" alt=\"JSON data\">",
+        "<img src=\"/portfolio.png\" alt=\"JSON data\">",
         "I built this using React and TypeScript to host my resume and portfolio. In order to keep this as light weight as possible so in addition to React, it's only using React Router for navigation and DOMPurify to make sure I don't inject any bad markup from my JSON data.",
         "The portfolio page is filterable by skill. I used the built-in reducer functionality in React for the filtering rather than adding Redux or other state-management libraries to the project.",
         "The CSS is hand-coded (no SASS) and I used flexbox layout to make it responsive. I used Vite as the build system and ViTest for unit tests.",
@@ -156,7 +156,7 @@
         "Exposes features via Bluetooth LE"
       ],
       "detail": [
-        "<img src=\"/public/nrf9160dk.webp\"/>",
+        "<img src=\"/nrf9160dk.webp\"/>",
         "This project is a proof-of-concept for an embedded vehicle telematics solution. It's developed for the <a href=\"https://www.nordicsemi.com/products/nrf9160\">Nordic Semiconductor nRF9160</a> SoC and supports reading CAN-BUS data and logging to a web service.",
         "For development hardware, I'm using the nRF9160 DK development board with a <a href=\"https://www.dfrobot.com/product-1444.html\">DFRobot CAN-BUS shield</a>.",
         "The project is running on <a href=\"https://www.zephyrproject.org/\">Zephyr RTOS</a> and developed using the nRFConnect SDK."
