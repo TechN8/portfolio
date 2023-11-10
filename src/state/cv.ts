@@ -1,5 +1,7 @@
 /* Types */
 
+import {Mutex} from 'async-mutex';
+
 export type Job = {
     slug: string,
     company: string,
@@ -54,6 +56,8 @@ export type CV = {
     skills?: string[],
 }
 
+const cvMutex = new Mutex();
+
 let cv: CV;
 
 /** Case-insensitive sort function. */
@@ -84,10 +88,12 @@ function indexSkills(cv: CV): string[] {
 
 /** Cetch CV data from server if not already downloaded. */
 export async function loadCV() {
-    if (!cv) {
-        const response = await fetch(`${document.baseURI}/data.json`);
-        cv = await response.json();
-    }
+    await cvMutex.runExclusive(async () => {
+        if (!cv) {
+            const response = await fetch(`${document.baseURI}/data.json?ts=${Date.now()}`);
+            cv = await response.json();
+        }
+    });
     return cv;
 }
 

@@ -11,6 +11,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "async-mutex": "^0.4.0",
     "dompurify": "^3.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
