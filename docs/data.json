@@ -58,6 +58,7 @@
       "company": "Avantia Inc.",
       "role": "Application Architect",
       "dates": "September 2012 -",
+      "startDate": "2012-09T09:00",
       "location": "Valley View, OH",
       "summary": [
         "Worked with clients and prospects to gather requirements and design solutions.",
@@ -80,6 +81,8 @@
       "company": "Lexi-Comp (WK Health)",
       "role": "Manager, Software Product Development",
       "dates": "May 2000 - July 2012",
+      "startDate": "2000-05-01:T09:00",
+      "endDate": "2012-07-01:T09:00",
       "location": "Hudson, OH",
       "summary": [
         "Worked with stakeholders to develop requirements and specifications.",
@@ -97,6 +100,8 @@
       "company": "IBM",
       "role": "Software Engineer",
       "dates": "June 1998 - May 2000",
+      "startDate": "1998-07-01:T09:00",
+      "endDate": "2000-05-01:T09:00",
       "location": "Poughkeepsie, NY",
       "summary": [
         "Performed maintenance and development for the OS/390 C/C++ run-time library and common components.",
@@ -119,6 +124,7 @@
       "title": "Portfolio Website",
       "subtitle": "React Single Page Application",
       "dates": "November 2023",
+      "startDate": "2023-11-01:T09:00",
       "showOnResume": false,
       "repo": false,
       "summary": [
@@ -145,7 +151,8 @@
       "slug": "iot-tracer",
       "title": "Vehicle Telematics Prototype",
       "subtitle": "IoT Firmware",
-      "dates": "May 2023 - ",
+      "dates": "July 2023 - ",
+      "startDate": "2023-07-17T09:00",
       "showOnResume": false,
       "repo": false,
       "summary": [
@@ -173,6 +180,8 @@
       "title": "Electronics Manufacturer Website",
       "subtitle": "Jahia CMS with React UI and AWS API",
       "dates": "April 2021 - April 2023",
+      "startDate": "2021-04-01T09:00",
+      "endDate": "2023-04-01T09:00",
       "showOnResume": false,
       "repo": false,
       "summary": [
@@ -224,6 +233,8 @@
       "title": "Entertainment Company Website",
       "subtitle": "Drupal CMS with React",
       "dates": "February 2018 - April 2023",
+      "startDate": "2018-02-01T09:00",
+      "endDate": "2023-04-01T09:00",
       "showOnResume": false,
       "repo": false,
       "summary": [
@@ -290,6 +301,8 @@
       "title": "Website Data Conversion",
       "subtitle": "Javascript ETL",
       "dates": "November 2022 - January 2023",
+      "startDate": "2022-11-01T09:00",
+      "endDate": "2023-01-01T09:00",
       "showOnResume": false,
       "repo": false,
       "summary": [
@@ -316,6 +329,8 @@
       "title": "Customer Service App",
       "subtitle": "Porting iOS App to Flutter",
       "dates": "April 2020 - June 2020",
+      "startDate": "2020-04-01T09:00",
+      "endDate": "2020-06-01T09:00",
       "showOnResume": false,
       "repo": false,
       "summary": [
@@ -341,6 +356,8 @@
       "title": "Investment Portfolio Dashboard",
       "subtitle": "Java & JavaScript Web Application",
       "dates": "July 2014 - April 2018",
+      "startDate": "2014-07-01T09:00",
+      "endDate": "2018-04-01T09:00",
       "showOnResume": false,
       "repo": false,
       "summary": [
@@ -370,6 +387,8 @@
       "title": "Hotel Chain Website",
       "subtitle": "Jahia CMS",
       "dates": "October 2017 - September 2018",
+      "startDate": "2017-10-01T09:00",
+      "endDate": "2018-09-01T09:00",
       "showOnResume": false,
       "repo": false,
       "summary": [
@@ -409,6 +428,8 @@
       "title": "DNS Registration Website",
       "subtitle": "Umbraco CMS",
       "dates": "April 2016 - July 2017",
+      "startDate": "2016-04-01T09:00",
+      "endDate": "2017-07-01T09:00",
       "showOnResume": false,
       "repo": false,
       "summary": [
@@ -441,6 +462,8 @@
       "title": "Image Map Generator",
       "subtitle": "Java Library and Web Components",
       "dates": "April 2014 - August 2015",
+      "startDate": "2014-04-01T09:00",
+      "endDate": "2015-08-01T09:00",
       "showOnResume": false,
       "repo": false,
       "summary": [
@@ -470,6 +493,8 @@
       "title": "Medical Application Review",
       "subtitle": "Software Analysis and Report",
       "dates": "October 2014 - February 2015",
+      "startDate": "2014-10-01T09:00",
+      "endDate": "2015-02-01T09:00",
       "showOnResume": false,
       "repo": false,
       "summary": [
@@ -496,6 +521,8 @@
       "title": "Government Grant Website",
       "subtitle": "Rails Web Application",
       "dates": "April 2014 - June 2014",
+      "startDate": "2014-04-01T09:00",
+      "endDate": "2014-06-01T09:00",
       "showOnResume": false,
       "repo": false,
       "summary": [
@@ -525,6 +552,8 @@
       "title": "College Application Website",
       "subtitle": "Rails Web Application",
       "dates": "March 2014 - June 2014",
+      "startDate": "2014-03-01T09:00",
+      "endDate": "2014-06-01T09:00",
       "showOnResume": false,
       "repo": false,
       "summary": [
@@ -554,6 +583,8 @@
       "title": "Digital Asset Manager",
       "subtitle": "Java & GTW Web Application",
       "dates": "September 2012 - July 2014",
+      "startDate": "2013-09-01T09:00",
+      "endDate": "2014-07-01T09:00",
       "showOnResume": false,
       "repo": false,
       "summary": [
@@ -584,6 +615,8 @@
       "title": "Charm Quark",
       "subtitle": "iOS Puzzle Game",
       "dates": "July 2012 - September 2012",
+      "startDate": "2012-07-01T09:00",
+      "endDate": "2012-09-01T09:00",
       "showOnResume": false,
       "repo": "https://github.com/TechN8/CharmQuark",
       "summary": [
@@ -616,6 +649,8 @@
       "title": "Drug Reference Apps",
       "subtitle": "Native Mobile Apps (Multiple Platforms)",
       "dates": "May 2000 - July 2012",
+      "startDate": "2000-05-01T09:00",
+      "endDate": "2012-07-01T09:00",
       "showOnResume": false,
       "repo": "",
       "summary": [
@@ -658,6 +693,8 @@
       "title": "Pharmacology Data Management System",
       "subtitle": "Java / Swing Application",
       "dates": "May 2000 - July 2012",
+      "startDate": "2000-05-01T09:00",
+      "endDate": "2012-07-01T09:00",
       "showOnResume": false,
       "repo": "",
       "summary": [
