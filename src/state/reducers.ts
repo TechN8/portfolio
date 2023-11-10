@@ -18,10 +18,13 @@ interface SortAction extends Action {
 type FilterState = {
     filters: string[];
     direction: number;
+    collapsed: boolean;
 }
 
 /** React context for passing filters to children */
-export const FilterContext = createContext<FilterState>({filters: [], direction: 1});
+export const FilterContext = createContext<FilterState>({
+    filters: [], direction: 1, collapsed: false,
+});
 
 /** Dispatcher context for sending reducer actions */
 export const FilterDispatchContext = createContext<Function>(() => {
@@ -56,6 +59,12 @@ export function filterReducer(state: FilterState, action: Action | SkillAction |
                 ...state,
                 filters: []
             };
+        }
+        case 'collapse': {
+            return {
+                ...state,
+                collapsed: !state.collapsed
+            }
         }
         default: {
             throw Error('Unknown action: ' + action.type);

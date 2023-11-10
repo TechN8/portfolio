@@ -34,6 +34,10 @@ export default function Projects(): ReactElement {
         dispatch({type: 'clear'});
     }
 
+    function collapseFilters() {
+        dispatch({type: 'collapse'});
+    }
+
     function sort(direction: number) {
         dispatch({type: 'sort', direction});
     }
@@ -57,8 +61,9 @@ export default function Projects(): ReactElement {
                     <div id="sidebar">
                         <div id="skills-filter">
                             <h2>Filter by skills</h2>
+                            <button className="collapse" onClick={collapseFilters}>{state.collapsed ? 'Show' : 'Hide'} Filters</button>
                             <button onClick={resetFilters} disabled={!state.filters.length}>Clear Filters</button>
-                            <ul>
+                            <ul className={state.collapsed ? 'collapsed' : 'expanded'}>
                                 {skills?.map((s) => (
                                         <li key={s}><label><input type="checkbox"
                                                                   checked={state.filters.includes(s)}
@@ -73,12 +78,14 @@ export default function Projects(): ReactElement {
                         <button
                                 disabled={state.direction > 0}
                                 onClick={() => sort(1)}
-                        >Sort Ascending</button>
+                        >Sort Ascending
+                        </button>
                         <button
                                 disabled={state.direction < 0}
                                 className={state.direction < 0 ? 'active' : ''}
                                 onClick={() => sort(-1)}
-                        >Sort Descending</button>
+                        >Sort Descending
+                        </button>
                         {
                             projects
                                     .filter(filterProjects)

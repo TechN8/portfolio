@@ -29,7 +29,7 @@ test('Loads Projects and Skills', async () => {
 });
 
 test('Handles skill toggle', () => {
-    let state = {filters: ['Skill 1'], direction: -1};
+    let state = {filters: ['Skill 1'], direction: -1, collapsed: false};
     state = filterReducer(state, {type: 'toggle', skill: 'Skill 2'});
     expect(state.filters).length(2);
     expect(state.filters).includes('Skill 1');
@@ -39,13 +39,13 @@ test('Handles skill toggle', () => {
 });
 
 test('Handles skill clear', () => {
-    let state = {filters: ['Skill 1', 'Skill 2'], direction: -1};
+    let state = {filters: ['Skill 1', 'Skill 2'], direction: -1, collapsed: false};
     state = filterReducer(state, {type: 'clear'});
     expect(state.filters).length(0);
 });
 
 test('Handles sort', () => {
-    let state = {filters: ['Skill 1', 'Skill 2'], direction: -1};
+    let state = {filters: ['Skill 1', 'Skill 2'], direction: -1, collapsed: false};
     state = filterReducer(state, {type: 'sort', direction: 1});
     expect(state.direction).toBe(1);
 });

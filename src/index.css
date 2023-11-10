@@ -195,6 +195,10 @@ button:disabled {
     cursor: initial;
 }
 
+button.collapse {
+    display: none;
+}
+
 input[type=checkbox] {
     margin-right: 0.5em;
 }
@@ -242,13 +246,17 @@ p {
         flex-wrap: wrap;
     }
 
+    #sidebar #skills-filter ul.collapsed {
+        display: none;
+    }
+
     #sidebar #skills-filter li {
         white-space: nowrap;
         margin-bottom: 0.5rem;
     }
 
-        nav.bottom ul {
-        /*flex-direction: column;*/
+    button.collapse {
+        display: inline-block;
     }
 }
 
