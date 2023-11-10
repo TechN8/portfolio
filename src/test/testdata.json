@@ -27,7 +27,8 @@
       "slug": "job-1",
       "company": "Company 1",
       "role": "Role 1",
-      "dates": "Start - End",
+      "startDate": "2020-01-01T09:00",
+      "endDate": "2020-10-31T09:00",
       "location": "City, State",
       "summary": [
         "Did some things.",
@@ -39,7 +40,8 @@
       "slug": "job-2",
       "company": "Company 2",
       "role": "Role 2",
-      "dates": "Start - End",
+      "startDate": "2020-01-01T09:00",
+      "endDate": "2020-10-31T09:00",
       "location": "City, State",
       "summary": [
         "Did some other things."
@@ -51,7 +53,8 @@
     {
       "slug": "project-1",
       "title": "Project 1",
-      "dates": "Start - ",
+      "startDate": "2020-01-01T09:00",
+      "endDate": "2020-10-31T09:00",
       "showOnResume": true,
       "url": false,
       "summary": [
@@ -69,7 +72,8 @@
     {
       "slug": "project-2",
       "title": "Project 2",
-      "dates": "Start - End",
+      "startDate": "2020-01-01T09:00",
+      "endDate": "2020-10-31T09:00",
       "showOnResume": true,
       "url": false,
       "summary": [

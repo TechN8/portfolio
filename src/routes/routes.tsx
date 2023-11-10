@@ -1,5 +1,5 @@
 import ErrorPage from '../error-page.tsx';
-import {loadCV, loadIndex, loadJob, loadProject, loadProjects} from '../cv.ts';
+import {loadCV, loadIndex, loadJob, loadProject, loadProjects} from '../state/cv.ts';
 import JobDetail from './job.tsx';
 import Projects from './projects.tsx';
 import ProjectDetail from './project.tsx';

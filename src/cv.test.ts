@@ -1,7 +1,8 @@
-import {filterReducer, loadCV, loadJob, loadProject, loadProjects} from './cv.ts';
+import {formatDate, loadCV, loadJob, loadProject, loadProjects} from './state/cv.ts';
 
 import testdata from './test/testdata.json';
 import {expect} from 'vitest';
+import {filterReducer} from './state/reducers.ts';
 
 // @ts-ignore
 fetch.mockResponse(JSON.stringify(testdata));
@@ -28,17 +29,29 @@ test('Loads Projects and Skills', async () => {
 });
 
 test('Handles skill toggle', () => {
-    let filters = ['Skill 1'];
-    filters = filterReducer(filters, {type: 'toggle', skill: 'Skill 2'});
-    expect(filters).length(2);
-    expect(filters).includes('Skill 1');
-    expect(filters).includes('Skill 2');
-    filters = filterReducer(filters, {type: 'toggle', skill: 'Skill 2'});
-    expect(filters).not.includes('Skill 2');
+    let state = {filters: ['Skill 1'], direction: -1};
+    state = filterReducer(state, {type: 'toggle', skill: 'Skill 2'});
+    expect(state.filters).length(2);
+    expect(state.filters).includes('Skill 1');
+    expect(state.filters).includes('Skill 2');
+    state = filterReducer(state, {type: 'toggle', skill: 'Skill 2'});
+    expect(state.filters).not.includes('Skill 2');
 });
 
 test('Handles skill clear', () => {
-    let filters = ['Skill 1', 'Skill 2'];
-    filters = filterReducer(filters, {type: 'clear'});
-    expect(filters).length(0);
+    let state = {filters: ['Skill 1', 'Skill 2'], direction: -1};
+    state = filterReducer(state, {type: 'clear'});
+    expect(state.filters).length(0);
+});
+
+test('Handles sort', () => {
+    let state = {filters: ['Skill 1', 'Skill 2'], direction: -1};
+    state = filterReducer(state, {type: 'sort', direction: 1});
+    expect(state.direction).toBe(1);
+});
+
+test('Parses dates', () => {
+    const job = testdata.experience[0];
+    expect(formatDate(job.startDate)).toBe('January 2020');
+    expect(formatDate(job.endDate)).toBe('October 2020');
 });

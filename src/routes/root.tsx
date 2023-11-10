@@ -3,7 +3,7 @@ import {
     Outlet, useLoaderData,
 } from 'react-router-dom';
 import {ReactElement, useEffect} from 'react';
-import {CV} from '../cv.ts';
+import {CV} from '../state/cv.ts';
 
 /**
  * This is the root "interactive CV" route content.

@@ -2,7 +2,7 @@ import {render, screen} from '@testing-library/react';
 import {createMemoryRouter, RouterProvider} from 'react-router-dom';
 import {expect, test} from 'vitest';
 import Index from './index.tsx';
-import {loadIndex} from '../cv.ts';
+import {loadIndex} from '../state/cv.ts';
 
 import testdata from '../test/testdata.json';
 

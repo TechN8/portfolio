@@ -3,9 +3,9 @@ import {
 } from 'react-router-dom';
 import {ReactElement} from 'react';
 import {
-    CV,
+    CV, formatDate,
     Job,
-} from '../cv.ts';
+} from '../state/cv.ts';
 import {Inline} from '../components/markup.tsx';
 
 function JobSummary({job}: { job: Job }): ReactElement {
@@ -14,7 +14,7 @@ function JobSummary({job}: { job: Job }): ReactElement {
                 <div className="job">
                     <h3>{job.role}</h3>
                     <div className="company">{job.company}</div>
-                    <div className="date">{job.dates} / {job.location}</div>
+                    <div className="date">{formatDate(job.startDate)} - {job.endDate ? formatDate(job.endDate) : ''} / {job.location}</div>
                     <ul>
                         {job.summary.map((item, index) => <li key={index}><Inline content={item}/></li>)}
                     </ul>
@@ -39,7 +39,7 @@ export default function Index(): ReactElement {
             <div id="cv">
                 <div id="heading">
                     <h1>{contact.name}</h1>
-                    <div>{contact.title}</div>
+                    <div className="subtitle">{contact.title}</div>
                 </div>
                 <div id="content">
                     <div id="sidebar">

@@ -1,6 +1,6 @@
 import {ReactElement} from 'react';
 import {Link, useLoaderData} from 'react-router-dom';
-import {Project} from '../cv.ts';
+import {formatDate, Project} from '../state/cv.ts';
 import {Block, Video} from '../components/markup.tsx';
 
 export default function ProjectDetail(): ReactElement {
@@ -14,7 +14,8 @@ export default function ProjectDetail(): ReactElement {
                 <div id="project">
                     <div id="heading">
                         <h1>{project.title}</h1>
-                        <div>{project?.subtitle}</div>
+                        <div className="subtitle">{project?.subtitle}</div>
+                        <div className="date">{formatDate(project.startDate)}{project.endDate ? ` - ${formatDate(project.endDate)}` : ''}</div>
                     </div>
                     <div id="content">
                         <div id="sidebar">

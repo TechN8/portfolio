@@ -1,12 +1,11 @@
-import {createContext} from 'react';
-
 /* Types */
 
 export type Job = {
     slug: string,
     company: string,
     role: string,
-    dates: string,
+    startDate: string,
+    endDate?: string,
     location: string,
     summary: string[],
     detail: string[]
@@ -17,7 +16,8 @@ export type Project = {
     title: string,
     repo?: string,
     subtitle?: string;
-    dates: string,
+    startDate: string,
+    endDate?: string,
     summary: string[],
     detail: string[],
     showOnResume: boolean,
@@ -54,47 +54,10 @@ export type CV = {
     skills?: string[],
 }
 
-/** Action for reducers */
-type Action = {
-    type: string
-}
-
-/** Action with skill field */
-interface SkillAction extends Action {
-    skill: string;
-}
-
 let cv: CV;
 
-/** React context for passing filters to children */
-export const FilterContext = createContext<string[]>([]);
-
-/** Dispatcher context for sending reducer actions */
-export const FilterDispatchContext = createContext<Function>(() => {
-});
-
-/** Reducer for managing selected filter skills */
-export function filterReducer(filters: string[], action: Action | SkillAction) {
-    switch (action.type) {
-        case 'toggle': {
-            const skill = (<SkillAction>action).skill;
-            if (filters.includes(skill)) {
-                return filters.filter(f => f != skill);
-            } else {
-                return [...filters, skill];
-            }
-        }
-        case 'clear': {
-            return [];
-        }
-        default: {
-            throw Error('Unknown action: ' + action.type);
-        }
-    }
-}
-
 /** Case-insensitive sort function. */
-function skillSort(a: string, b: string) {
+function skillCompare(a: string, b: string) {
     return a.toLowerCase().localeCompare(b.toLowerCase());
 }
 
@@ -109,14 +72,14 @@ function skillSet(cv: CV): Set<string> {
 
 /** Sorted array of all skills from a CV */
 function allSkills(cv: CV): string[] {
-    return Array.from(skillSet(cv)).sort(skillSort);
+    return Array.from(skillSet(cv)).sort(skillCompare);
 }
 
 /** All skills minus hidden skills. */
 function indexSkills(cv: CV): string[] {
     const set = skillSet(cv);
     cv.hideSkills.forEach(s => set.delete(s));
-    return Array.from(set).sort(skillSort);
+    return Array.from(set).sort(skillCompare);
 }
 
 /** Cetch CV data from server if not already downloaded. */
@@ -131,10 +94,12 @@ export async function loadCV() {
 /** React-Router loader for index page */
 export async function loadIndex() {
     const cv = await loadCV();
-    const resumeProjects = cv.projects.filter(p => p.showOnResume);
+    const resumeProjects = cv.projects
+        .filter(p => p.showOnResume)
+        .sort();
     return {
         ...cv,
-        projects: resumeProjects,
+        projects: resumeProjects.sort(projectCompare),
         skills: indexSkills(cv),
     };
 }
@@ -159,7 +124,7 @@ export async function loadProject({params}: { params: any }) {
     return {
         project: {
             ...project,
-            skills: project?.skills.sort(skillSort),
+            skills: project?.skills.sort(skillCompare),
         },
         next,
         previous,
@@ -171,6 +136,24 @@ export async function loadProjects() {
     const cv = await loadCV();
     return {
         ...cv,
+        projects: cv.projects.sort(projectCompare),
         skills: allSkills(cv)
     };
+}
+
+export function formatDate(date: string): string {
+    let locale = Intl.DateTimeFormat().resolvedOptions().locale;
+    const parsed = new Date(date);
+    if (!isNaN(parsed.getDate())) {
+        return parsed.toLocaleDateString(locale, {month: 'long', year: 'numeric'});
+    }
+    throw Error(`Invalid date string: ${date}`);
+}
+
+export function compareDates(a: string, b: string) {
+    return Date.parse(a) - Date.parse(b);
+}
+
+function projectCompare(p1: Project, p2: Project) {
+    return -1 * compareDates(p1.startDate, p2.startDate);
 }

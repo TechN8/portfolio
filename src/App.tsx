@@ -1,12 +1,11 @@
-import {FilterContext, FilterDispatchContext, filterReducer} from './cv.ts';
 import {ReactElement, useReducer} from 'react';
 import {createHashRouter, RouterProvider} from 'react-router-dom';
 import routes from './routes/routes.tsx';
-
-const router = createHashRouter(routes);
+import {FilterDispatchContext, FilterContext, filterReducer} from './state/reducers.ts';
 
 export default function App(): ReactElement {
-    const [filters, dispatch] = useReducer(filterReducer, []);
+    const [filters, dispatch] = useReducer(filterReducer, {filters: [], direction: -1});
+    const router = createHashRouter(routes);
 
     return (
             <FilterContext.Provider value={filters}>
