@@ -235,7 +235,19 @@ p {
         content: '';
     }
 
-    nav.bottom ul {
+    #sidebar #skills-filter ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    #sidebar #skills-filter li {
+        white-space: nowrap;
+        margin-bottom: 0.5rem;
+    }
+
+        nav.bottom ul {
         /*flex-direction: column;*/
     }
 }
