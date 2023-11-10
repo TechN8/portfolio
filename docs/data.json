@@ -81,8 +81,8 @@
       "company": "Lexi-Comp (WK Health)",
       "role": "Manager, Software Product Development",
       "dates": "May 2000 - July 2012",
-      "startDate": "2000-05-01:T09:00",
-      "endDate": "2012-07-01:T09:00",
+      "startDate": "2000-05-01T09:00",
+      "endDate": "2012-07-01T09:00",
       "location": "Hudson, OH",
       "summary": [
         "Worked with stakeholders to develop requirements and specifications.",
@@ -100,8 +100,8 @@
       "company": "IBM",
       "role": "Software Engineer",
       "dates": "June 1998 - May 2000",
-      "startDate": "1998-07-01:T09:00",
-      "endDate": "2000-05-01:T09:00",
+      "startDate": "1998-07-01T09:00",
+      "endDate": "2000-05-01T09:00",
       "location": "Poughkeepsie, NY",
       "summary": [
         "Performed maintenance and development for the OS/390 C/C++ run-time library and common components.",
@@ -124,7 +124,7 @@
       "title": "Portfolio Website",
       "subtitle": "React Single Page Application",
       "dates": "November 2023",
-      "startDate": "2023-11-01:T09:00",
+      "startDate": "2023-11-01T09:00",
       "showOnResume": false,
       "repo": false,
       "summary": [
