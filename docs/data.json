@@ -90,7 +90,7 @@
         "Developed web services.",
         "Designed MySQL DB to store content and updates.",
         "Coded WYSIWYG XML content editor.",
-        "Managed 10 member agile development team responsible for mobile, web and data products.",
+        "Managed 10-member agile development team responsible for mobile, web and data products.",
         "IT staff grew from 5 to 20+ members."
       ],
       "detail": []
@@ -190,11 +190,11 @@
         "Node web services hosted on AWS"
       ],
       "detail": [
-        "I was the Architect and Lead Developer on this project. We were contracted by a major electronics component manufacturer to build their website on the <a href=\"https://www.jahia.com\">Jahia</a> CMS. As part of the redesign we would also take also over maintenance and hosting of a back-office Node + React apps used to maintain product data.",
-        "While attending working meetings between the client and the design firm, I developed the new hosting architecture for their existing back-end applications. Many of the Node libraries used in these applications (including React and Node itself) were were several years out of date and needed to be updated for security fixes. Once this was complete, the applications were bundled as Docker images for deployment on ECS. MongoDB and MS SQL databases were migrated to <a href=\"https://aws.amazon.com/documentdb/\">Amazon DocumentDB</a> and <a href=\"https://aws.amazon.com/rds/mysql/\">RDS for MySQL</a>. I used the <a href=\"https://aws.amazon.com/cdk/\">AWS CDK</a> to specify the deployment stacks as TypeScript code. The resulting CDK code was then to bootstrap development, test, and production AWS accounts.",
+        "I was the Architect and Lead Developer on this project. We were contracted by a major electronics component manufacturer to build their website on the <a href=\"https://www.jahia.com\">Jahia</a> CMS. As part of the redesign we would also take over maintenance and hosting of a back-office Node + React apps used to maintain product data.",
+        "While attending working meetings between the client and the design firm, I developed the new hosting architecture for their existing back-end applications. Many of the Node libraries used in these applications (including React and Node itself) were several years out of date and needed to be updated for security fixes. Once this was complete, the applications were bundled as Docker images for deployment on ECS. MongoDB and MS SQL databases were migrated to <a href=\"https://aws.amazon.com/documentdb/\">Amazon DocumentDB</a> and <a href=\"https://aws.amazon.com/rds/mysql/\">RDS for MySQL</a>. I used the <a href=\"https://aws.amazon.com/cdk/\">AWS CDK</a> to specify the deployment stacks as TypeScript code. The resulting CDK code was then to bootstrap the development, test, and production AWS accounts.",
         "Once the designs were completed, I used them to specify a set of CMS modules for the implementation team. These modules included a standardized set of content components for building pages, as well as JavaScript components. An integration module was specified to map product data from the back-end system now running on AWS to CMS content nodes. This data was used for their parametric search grid, a key piece of functionality on the site. This search grid was implemented using <a href=\"https://react.dev/\">React</a> with <a href=\"https://redux.js.org/\">Redux</a> and <a href=\"https://immerjs.github.io/immer/\">Immer</a>, and data was provided by the (migrated) back-end applications via the CMS integration.",
-        "Each module was created as a separate Git repo with documentation and configured in the <a href=\"https://gitlab.com\">GitLab</a> CI/CD system. These modules were then implemented by the team and myself. I was also responsible for code reviews and deployment.",
-        "Once the new site functionality was complete. I developed a JavaScript tool using <a href=\"https://github.com/NaturalIntelligence/fast-xml-parser\">fast-xml-parser</a> to transform important content (news and press sections) from the old site for the new. "
+        "Each module was created as a separate Git repo with documentation and configured in the <a href=\"https://gitlab.com\">GitLab</a> CI/CD system. The team and I then implemented these modules. I was also responsible for code reviews and deployment.",
+        "Once the new site functionality was complete, I developed a JavaScript tool using <a href=\"https://github.com/NaturalIntelligence/fast-xml-parser\">fast-xml-parser</a> to transform important content (news and press sections) from the old site for the new. "
       ],
       "skills": [
         "AWS",
@@ -243,11 +243,11 @@
         "eCommerce Integration"
       ],
       "detail": [
-        "I was the Architect and Lead Developer on this project. An entertainment company with over 300 physical locations contracted us to develop an newly redesigned website which would include eCommerce functionality for booking events at their properties.",
+        "I was the Architect and Lead Developer on this project. An entertainment company with over 300 physical locations contracted us to develop a newly redesigned website that would include eCommerce functionality for booking events at their properties.",
         "During the proposal process, we evaluated several CMS platforms for the project and prepared a summary report for the client comparing their relative strengths. From the presented options, the client opted to implement their site on <a href=\"https://https://www.drupal.org/\">Drupal</a>.",
         "I worked on-site and remotely with the design agency contracted with the client during development of the new online booking flow. My role during this time was to ensure minimal friction between the UX design and the technical implementation.",
-        "The final designs were used to specify a set of reusable content components, and <a href=\"https://react.dev/\">React</a> + <a href=\"https://redux.js.org/\">Redux</a> applications to handle the eCommerce functionality. The React app integrated data from the client's CRM and the Drupal CMS and used Redux and Immer to maintain customer order state in a multi-step booking wizard. Both credit card and Apple Pay were supported as payment methods.",
-        "After the design phase, I served as Lead Developer on the project. In this role I was responsible for configuring the CI/CD system to perform automatic testing an deployment to the client's Acquia hosting environment. In addition to my own development tasks, I also maintained the code base and was responsible for approving merge requests from the other team members.",
+        "The final designs were used to specify a set of reusable content components and <a href=\"https://react.dev/\">React</a> + <a href=\"https://redux.js.org/\">Redux</a> applications to handle the eCommerce functionality. The React app integrated data from the client's CRM and the Drupal CMS and used Redux and Immer to maintain customer order state in a multi-step booking wizard. Both credit card and Apple Pay were supported as payment methods.",
+        "After the design phase, I served as Lead Developer on the project. In this role I was responsible for configuring the CI/CD system to perform automatic testing and deployment to the client's Acquia hosting environment. In addition to my own development tasks, I also maintained the code base and was responsible for approving merge requests from the other team members.",
         "After launching the site, I continued as the Lead Developer, performing maintenance and enhancements for several years."
       ],
       "skillsCV": [
@@ -311,7 +311,7 @@
         "XML parsing using fast-xml-parser"
       ],
       "detail": [
-        "A client needed to migrate several hundred pages from a production CMS site to a newly redesigned site. To accomplish this I exported the content as XML and then wrote some NodeJS transformation programs to extract data from the old site and convert it to use the newly designed theme.",
+        "A client needed to migrate several hundred pages from a production CMS site to a newly redesigned site. To accomplish this, I exported the content as XML and then wrote some NodeJS transformation programs to extract data from the old site and convert it to use the newly designed theme.",
         "The transforms were handled by converting the exported XML to JavaScript objects using <a href=\"https://github.com/NaturalIntelligence/fast-xml-parser\">fast-xml-parser</a>. These objects were then transformed to match the required structure for the new site and written out to the proper compressed XML format for import using <a href=\"https://github.com/Stuk/jszip\">JSZip</a>.",
         "The program was also responsible for downloading all the image files from the old site and bundling them for import to the new site."
       ],
@@ -339,8 +339,8 @@
         "Ported from native iOS to Flutter"
       ],
       "detail": [
-        "A customer required assistance in porting a native iOS application written in Swift to Flutter. I worked on user preferences, account switching, and password reset.",
-        "The client's REST API was used via standard HTTP calls. Data was stored in using the <a href=\"https://pub.dev/packages/flutter_secure_storage\">flutter_secure_storage</a> API and cleared when logging out or switching accounts."
+        "A customer required assistance porting a native iOS application, written in Swift, to Flutter. I worked on user preferences, account switching, and password reset.",
+        "The client's REST API was used via standard HTTP calls. Data was stored using the <a href=\"https://pub.dev/packages/flutter_secure_storage\">flutter_secure_storage</a> API and cleared when logging out or switching accounts."
       ],
       "skills": [
         "Android",
@@ -366,8 +366,8 @@
         "Implemented portfolio graphs using Chart.js"
       ],
       "detail": [
-        "I assisted a client in implementing new features on an investment account dashboard web application for retirement accounts. The application was written Java using the <a href=\"https://spring.io/\">Spring</a> framework.",
-        "I was responsible for implementing portfolio summary charts. For this, the data was retrieved from a SOAP webservice which was authenticated using OAuth. The investment charts were rendered using <a href=\"https://www.chartjs.org/\">Chart.js</a>."
+        "I assisted a client in implementing new features on an investment account dashboard web application for retirement accounts. The application was written in Java using the <a href=\"https://spring.io/\">Spring</a> framework.",
+        "I was responsible for implementing portfolio summary charts. For this, the data was retrieved from a SOAP webservice, which was authenticated using OAuth. The investment charts were rendered using <a href=\"https://www.chartjs.org/\">Chart.js</a>."
       ],
       "skills": [
         "CSS",
@@ -399,7 +399,7 @@
       ],
       "detail": [
         "We were contracted to develop a new website for a hotel management company using <a href=\"https://www.jahia.com\">Jahia</a>, a Java CMS. As a full stack developer on this project, I was assigned to implement both front-end and back-end functionality for property search and display.",
-        "I developed a CMS module to retrieve retrieve pricing and room availability data from the client's CRM service. Additional property data, including location and amenities, was maintained in the CMS. Data from the two sources was merged in a Java service class and exposed as a REST webservice to be consumed by the front-end JavaScript.",
+        "I developed a CMS module to retrieve pricing and room availability data from the client's CRM service. Additional property data, including location and amenities, was maintained in the CMS. Data from the two sources was merged by a Java service and exposed via REST webservice to be consumed by the front-end JavaScript.",
         "Based on a provided mockup from our designer, I implemented the front JavaScript using <a href=\"https://jquery.com/\">jQuery</a> and <a href=\"https://getbootstrap.com/\">Bootstrap</a> to allow users to search available rooms by price, location, and amenities."
       ],
       "skills": [
@@ -438,7 +438,7 @@
         "eCommerce"
       ],
       "detail": [
-        "I was the Architect and Lead Developer on this project. We were contracted to develop a domain search and registration website for a new top level domain. The <a href=\"https://umbraco.com/\">Umbraco</a> CMS was used for site content and a separate .NET application was developed to support the domain search and eCommerce functionality. The site was deployed on <a href=\"https://azure.microsoft.com\">Azure</a> and used <a href=\"https://azure.microsoft.com/en-us/products/active-directory-ds\">Azure AD</a> for user authentication.",
+        "I was the Architect and Lead Developer on this project. We were contracted to develop a domain search and registration website for a new top-level domain. The <a href=\"https://umbraco.com/\">Umbraco</a> CMS was used for site content and a separate .NET application was developed to support the domain search and eCommerce functionality. The site was deployed on <a href=\"https://azure.microsoft.com\">Azure</a> and used <a href=\"https://azure.microsoft.com/en-us/products/active-directory-ds\">Azure AD</a> for user authentication.",
         "My responsibilities on this project included designing the system architecture, specifying and assigning work items to the team, configuring CI/CD, and reviewing committed code. During implementation I was responsible for configuring and customizing the CMS as well as general development tasks."
       ],
       "skills": [
@@ -473,8 +473,8 @@
         "JavaScript UI"
       ],
       "detail": [
-        "A client contracted us to implement a library for generating single-use image maps for their web products. As the Software Engineer assigned to this project. I developed the library as a <a href=\"https://spring.io/projects/spring-boot\">Spring Boot</a> project that could be integrated with the client's Java web applications.",
-        "<a href=\"https://xmlgraphics.apache.org/batik/\">Apache Batik</a> was used to assemble a randomized SVG image on the server which was then cached using <a href=\"https://www.ehcache.org/\">Ehcache</a>. This was then served via a REST web service to an HTML + JavaScript front end library. The front end code could use SVG for the image map if it was supported by the browser or fall back to JPG if not. The application was themeable using SVG template files configured in the Spring context configuration."
+        "A client contracted us to implement a library for generating single-use image maps for their web products. As the Software Engineer assigned to this project, I developed the library as a <a href=\"https://spring.io/projects/spring-boot\">Spring Boot</a> project that could be integrated with the client's Java web applications.",
+        "<a href=\"https://xmlgraphics.apache.org/batik/\">Apache Batik</a> was used to assemble a randomized SVG image on the server, which was then cached using <a href=\"https://www.ehcache.org/\">Ehcache</a>. This was then served via a REST web service to an HTML + JavaScript front end library. The front end code could use SVG for the image map if it was supported by the browser or fall back to JPG if not. The application was themeable using SVG template files configured in the Spring context configuration."
       ],
       "skills": [
         "CSS",
@@ -504,7 +504,7 @@
       ],
       "detail": [
         "A hospital hired us to review an internal decision support application prior to possibly licensing it to other institutions. I was the Architect assigned to this project.",
-        "The review process included interviews with the development team, institution staff and users. The code was also reviewed manually and using the <a href=\"https://www.sonarsource.com\">SonarQube</a> static analysis package. I prepared a report for the customer that covered; security (<a href=\"https://owasp.org/www-project-top-ten/\">OWASP Top 10</a>), software used and licensing, hardware requirements, development lifecycle, source code quality, HIPAA compliance, and database design. The report also included recommended software and process changes to be implemented prior to licensing of the project."
+        "The review process included interviews with the development team, institution staff and users. The code was also reviewed manually and using the <a href=\"https://www.sonarsource.com\">SonarQube</a> static analysis package. I prepared a report for the customer that covered: security (<a href=\"https://owasp.org/www-project-top-ten/\">OWASP Top 10</a>); software used and licensing; hardware requirements; development lifecycle; source code quality; HIPAA compliance; and database design. The report also included recommended software and process changes to be implemented prior to licensing of the project."
       ],
       "skills": [
         ".NET",
@@ -594,8 +594,8 @@
         "Integration with SAP"
       ],
       "detail": [
-        "I was contracted as a Software Engineer to assist the development of an in-house digital asset management application at a large greeting-card. In this role I worked with the client's IT staff and other contractors.",
-        "The application was written in Java using <a href=\"https://spring.io\">Spring Framework</a> and the <a href=\"https://www.gwtproject.org/\">GWT</a> UI toolkit. Data was stored in MS SQL with ORM via <a href=\"https://hibernate.org/\">Hibernate</a>. The data was also synced with the client's SAP CRM to relate assets to product SKUs in which they were used and other data."
+        "I was contracted as a Software Engineer to assist in the development of an in-house digital asset management application at a large greeting-card manufacturer. In this role, I worked with the client's IT staff and other contractors.",
+        "The application was written in Java using <a href=\"https://spring.io\">Spring Framework</a> and the <a href=\"https://www.gwtproject.org/\">GWT</a> UI toolkit. Data was stored in MS SQL with ORM via <a href=\"https://hibernate.org/\">Hibernate</a>. The data was also synced with the client's SAP CRM to relate media assets to product SKUs and other data."
       ],
       "skills": [
         "CSS",
@@ -630,7 +630,7 @@
       ],
       "video": "jvOKCsPnlBA",
       "detail": [
-        "Charm Quark is an iOS puzzle game. The goal is to match 5 particles of the same color and rather than moving next piece like in Tetris the whole play-field rotates. I wrote this game around the time the <a href=\"https://home.cern/science/accelerators/large-hadron-collider\">Large Hadron Collider</a> was in coming online and in the news, so I decided to use that as my inspiration for the graphics.",
+        "Charm Quark is an iOS puzzle game. The goal is to match 5 particles of the same color. Rather than moving next piece, like in Tetris, the whole play-field rotates. I wrote this game around the time the <a href=\"https://home.cern/science/accelerators/large-hadron-collider\">Large Hadron Collider</a> was coming online and in the news, so I decided to use that as my inspiration for the graphics.",
         "The game is written in Objective-C using the <a href=\"https://github.com/cocos2d/cocos2d-iphone-classic\">Cocos2D</a> game library. Sprites were created as SVG using <a href=\"https://inkscape.org\">Inkscape</a>. Music was composed with <a href=\"https://www.apple.com/mac/garageband/\">GarageBand</a>. The website for this app (no longer online) was written in Python and hosted on <a href=\"https://cloud.google.com/appengine\">Google App Engine</a>",
         "The app was published in the Apple App Store in 2012. It's no longer available on the app store because the audio library in use was removed from iOS by Apple. I've uploaded the source code to GitHub under the MIT license."
       ],
@@ -663,8 +663,8 @@
       "detail": [
         "As a Software Engineer at Lexi-Comp, I was the designer and initial developer of their <a href=\"https://www.wolterskluwer.com/en/solutions/lexicomp/lexicomp\">mobile applications</a>. The first versions were for <a href=\"https://en.wikipedia.org/wiki/Palm_OS\">PalmOS</a> and developed using <a href=\"https://prc-tools.sourceforge.net/\">PRC Tools</a> on Linux. The server software was written in Java. I was also responsible for porting this application to <a href=\"https://en.wikipedia.org/wiki/Pocket_PC\">PocketPC</a> (later renamed Windows Mobile), <a href=\"https://en.wikipedia.org/wiki/BlackBerry\">BlackBerry</a>, <a href=\"https://www.apple.com/ios/ios-17/\">iOS</a>. I also assisted with the <a href=\"https://www.android.com/\">Android</a> and <a href=\"https://en.wikipedia.org/wiki/WebOS\">Palm WebOS</a> versions.",
         "The initial project on PalmOS was probably the most challenging. The PalmOS PDB file format was simply sequential records of up to 64k each. There was no HTML component for rendering hypertext content for the data. To work around these limitations, I developed a binary hypertext format and used a slightly modified version of <a href=\"https://www.zlib.net/\">zlib</a> to compress multiple documents into a single PDB record. I also developed a downloader application in Java to keep the database files up to date and sync them to the device. Also during this project, I contributed a patch to the Linux kernel USB driver to recognize the device ID of the memory stick reader in the <a href=\"https://en.wikipedia.org/wiki/CLI%C3%89\">Sony Clié</a>. After PalmOS, the platforms got subsequently easier to develop for as they provided built-in APIs for things like HTTP requests and HTML rendering.",
-        "In 2007 when Apple launched the iPhone we set about porting the application so we could have it on the App Store as soon as possible. We later added dedicated iPad support. This platform was yet easier to implement on due to a more advanced OS and built-in WebKit HTML and JavaScript engine and <a href=\"https://www.sqlite.org\">SQLite</a> database format. Android and Blackberry followed also using SQLite.",
-        "In 2010, I was promoted to Manager of Software Product Development, where I led the team responsible for the company's mobile, web and data products."
+        "In 2007, when Apple launched the iPhone, we set about porting the application so we could have it on the App Store as soon as possible. We later added dedicated iPad support. This platform was yet easier to implement on due to a more advanced OS and built-in WebKit HTML and JavaScript engine and <a href=\"https://www.sqlite.org\">SQLite</a> database format. Android and Blackberry followed also using SQLite.",
+        "In 2010, I was promoted to Manager of Software Product Development, where I led the team responsible for the company's mobile, web, and data products."
       ],
       "skills": [
         "Android",
@@ -707,7 +707,7 @@
         "As a software engineer at Lexi-Comp I contributed to the development of their in-house content management system.",
         "This application was written in Java with a <a href=\"https://en.wikipedia.org/wiki/Swing_(Java)\">Swing</a> UI and hosted on Linux with Apache and Tomcat. The system used Oracle as a master database with MySQL set up as read-only replicas for web and mobile use.",
         "I was responsible for the initial implementation of the WYSIWYG XML editor, XML to HTML transformation, and MySQL database design.",
-        "In 2010, I was promoted to Manager of Software Product Development, where I led the team responsible for the company's mobile, web and data products."
+        "In 2010, I was promoted to Manager of Software Product Development, where I led the team responsible for the company's mobile, web, and data products."
       ],
       "skills": [
         "Apache",
