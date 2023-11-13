@@ -8,7 +8,6 @@ import Root from './root.tsx';
 
 export default [
     {
-        basename: '/react-ts-portfolio',
         path: '/',
         element: <Root/>,
         errorElement: <ErrorPage/>,
