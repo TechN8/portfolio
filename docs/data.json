@@ -126,7 +126,7 @@
       "dates": "November 2023",
       "startDate": "2023-11-01T09:00",
       "showOnResume": false,
-      "repo": false,
+      "repo": "https://github.com/TechN8/react-ts-portfolio",
       "summary": [
         "React / TypeScript application",
         "Hosted on GitHub"
