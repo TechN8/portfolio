@@ -90,7 +90,7 @@ function indexSkills(cv: CV): string[] {
 export async function loadCV() {
     await cvMutex.runExclusive(async () => {
         if (!cv) {
-            const response = await fetch(`${document.baseURI}/data.json?ts=${Date.now()}`);
+            const response = await fetch(`/data.json?ts=${Date.now()}`);
             cv = await response.json();
         }
     });
