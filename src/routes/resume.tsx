@@ -26,7 +26,7 @@ function JobSummary({job}: { job: Job }): ReactElement {
 /**
  * This is the root "interactive CV" route content.
  */
-export default function Index(): ReactElement {
+export default function Resume(): ReactElement {
     const {
         contact,
         experience,

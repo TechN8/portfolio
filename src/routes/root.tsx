@@ -23,8 +23,8 @@ export default function Root(): ReactElement {
         <>
             <nav className="top">
                 <ul>
-                    <li><NavLink to="/">Resume</NavLink></li>
-                    <li><NavLink to="/projects">Portfolio</NavLink></li>
+                    <li><NavLink to="/">Portfolio</NavLink></li>
+                    <li><NavLink to="/resume">Resume</NavLink></li>
                 </ul>
             </nav>
             <Outlet />

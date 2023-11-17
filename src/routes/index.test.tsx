@@ -1,7 +1,7 @@
 import {render, screen} from '@testing-library/react';
 import {createMemoryRouter, RouterProvider} from 'react-router-dom';
 import {expect, test} from 'vitest';
-import Index from './index.tsx';
+import Resume from './resume.tsx';
 import {loadIndex} from '../state/cv.ts';
 
 import testdata from '../test/testdata.json';
@@ -14,7 +14,7 @@ test('Renders index page correctly', async () => {
     const router = createMemoryRouter([
         {
             path: '/',
-            element: <Index/>,
+            element: <Resume/>,
             loader: loadIndex,
         }
     ], {

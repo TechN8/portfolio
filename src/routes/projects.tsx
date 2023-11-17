@@ -9,7 +9,7 @@ function ProjectSummary({project}: { project: Project }): ReactElement {
             <>
                 <div className="job">
                     <h3>
-                        <Link to={`${project.slug}`}
+                        <Link to={`/projects/${project.slug}`}
                         >{project.title}{project.subtitle ? ` - ${project.subtitle}` : ''}</Link>
                     </h3>
                     <div className="date">{formatDate(project.startDate)}{project.endDate ? ` - ${formatDate(project.endDate)}` : ''}</div>

@@ -3,7 +3,7 @@ import {loadCV, loadIndex, loadJob, loadProject, loadProjects} from '../state/cv
 import JobDetail from './job.tsx';
 import Projects from './projects.tsx';
 import ProjectDetail from './project.tsx';
-import Index from './index.tsx';
+import Resume from './resume.tsx';
 import Root from './root.tsx';
 
 export default [
@@ -14,8 +14,8 @@ export default [
         loader: loadCV,
         children: [
             {
-                element: <Index/>,
-                index: true,
+                path: 'resume',
+                element: <Resume/>,
                 loader: loadIndex,
             },
             {
@@ -24,7 +24,7 @@ export default [
                 loader: loadJob,
             },
             {
-                path: 'projects',
+                index: true,
                 element: <Projects/>,
                 loader: loadProjects,
             },
