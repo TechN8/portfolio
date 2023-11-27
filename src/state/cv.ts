@@ -52,7 +52,6 @@ export type CV = {
     experience: Job[],
     projects: Project[],
     interests: string[],
-    hideSkills: string[],
     skills?: string[],
 }
 
@@ -62,7 +61,9 @@ let cv: CV;
 
 /** Case-insensitive sort function. */
 function skillCompare(a: string, b: string) {
-    return a.toLowerCase().localeCompare(b.toLowerCase());
+    return a.replace(/^\W+/,'').toLowerCase().localeCompare(
+        b.replace(/^\W+/,'').toLowerCase()
+    );
 }
 
 /** Make a unique set of skills from all projects in CV */
@@ -76,14 +77,14 @@ function skillSet(cv: CV): Set<string> {
 
 /** Sorted array of all skills from a CV */
 function allSkills(cv: CV): string[] {
-    return Array.from(skillSet(cv)).sort(skillCompare);
+    return Array
+        .from(skillSet(cv))
+        .sort(skillCompare);
 }
 
 /** All skills minus hidden skills. */
 function indexSkills(cv: CV): string[] {
-    const set = skillSet(cv);
-    cv.hideSkills.forEach(s => set.delete(s));
-    return Array.from(set).sort(skillCompare);
+    return cv.skills ?? [];
 }
 
 /** Cetch CV data from server if not already downloaded. */

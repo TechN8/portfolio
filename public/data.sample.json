@@ -90,7 +90,9 @@
     "Interest 2",
     "Interest 3"
   ],
-  "hideSkills": [
-    "Skill 2"
+  "skills": [
+    "Skill 1",
+    "Skill 2",
+    "Skill 3"
   ]
 }
