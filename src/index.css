@@ -328,4 +328,8 @@ p {
     nav {
         display: none;
     }
+
+    .job {
+        page-break-inside: avoid;
+    }
 }
