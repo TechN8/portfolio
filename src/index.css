@@ -207,7 +207,7 @@ p {
     margin: 1rem 0;
 }
 
-@media (max-width: 50rem) {
+@media (max-width: 480px) {
     #content {
         flex-direction: column;
     }
@@ -231,11 +231,15 @@ p {
         margin-right: 1em;
     }
 
-    #sidebar #skills li:after {
+    #sidebar #skills li:after,
+    #sidebar #interests li:after
+    {
         content: ',';
     }
 
-    #sidebar #skills li:last-child:after {
+    #sidebar #skills li:last-child:after,
+    #sidebar #interests li:last-child:after
+    {
         content: '';
     }
 
@@ -305,18 +309,20 @@ p {
 
     #content {
         display: block;
+        margin: 2.5vw;
         width: 100%;
         box-sizing: border-box;
     }
 
     #sidebar {
         position: absolute;
-        width: 25rem;
+        width: 25vw;
     }
 
     #main {
         position: absolute;
-        margin-left: 25rem;
+        margin-left: 27.5vw;
+        width: 70vw;
     }
 
     nav {
