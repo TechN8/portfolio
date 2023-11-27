@@ -33,6 +33,7 @@ export default function Resume(): ReactElement {
         education,
         interests,
         skills,
+        summary,
     } = useLoaderData() as CV;
 
     return (
@@ -81,6 +82,10 @@ export default function Resume(): ReactElement {
                         )}
                     </div>
                     <div id="main">
+                        <div id="summary">
+                            <h2>Professional Summary</h2>
+                            {summary && <p>{summary}</p>}
+                        </div>
                         <div id="experience">
                             <h2>Experience</h2>
                             {experience.map((job) => <JobSummary key={job.slug} job={job}/>)}

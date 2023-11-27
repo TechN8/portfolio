@@ -53,6 +53,7 @@ export type CV = {
     projects: Project[],
     interests: string[],
     skills?: string[],
+    summary: string,
 }
 
 const cvMutex = new Mutex();
@@ -87,7 +88,7 @@ function indexSkills(cv: CV): string[] {
     return cv.skills ?? [];
 }
 
-/** Cetch CV data from server if not already downloaded. */
+/** Fetch CV data from server if not already downloaded. */
 export async function loadCV() {
     await cvMutex.runExclusive(async () => {
         if (!cv) {
